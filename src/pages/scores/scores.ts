@@ -14,12 +14,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'scores.html',
 })
 export class ScoresPage {
+  public doughnutChartLabels: string[] = ['Fallos', 'Aciertos'];
+  public doughnutChartData: number[] = [11, 50];
+  public doughnutChartType: string = 'doughnut';
+
+  // events
+  public chartClicked(e: any): void {
+    console.log(e);
+  }
+
+  public chartHovered(e: any): void {
+    console.log(e);
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ScoresPage');
+
   }
 
 }
