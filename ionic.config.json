@@ -1,0 +1,7 @@
+{
+  "name": "MateBachi",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
