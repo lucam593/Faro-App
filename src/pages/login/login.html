@@ -10,27 +10,38 @@
 </ion-header>
 
 
-<ion-content padding class="bg-login">
+<ion-content text-center  class="bg-login">
 
-  <img padding src="assets/imgs/2.png"/>
-  <img padding src="assets/imgs/1.png"/>
+  <div padding class="logo-main-settings">
+    <img src="assets/imgs/1.png" />
+  </div>
+  
 
-  <div text-center padding >
+  <div text-center padding>
+
+
+    <div >
+      <button ion-button>
+        <ion-icon padding-right name="logo-facebook"></ion-icon>
+        Login with Facebook
+      </button>
+
+      <button ion-button margin-top color="danger">
+        <ion-icon padding-right name="logo-googleplus"></ion-icon>
+        Sing in with Google+
+      </button>
+
+      <button ion-button margin-top color="guess">
+          <ion-icon padding-right name="contacts"></ion-icon>
+          Ingresar como invitado
+        </button>
+    </div>
+
     <div padding-vertical>
-        <button ion-button  >   
-            <ion-icon padding-right name="logo-facebook"></ion-icon>
-             Login with Facebook
-          </button>
+      <img src="assets/imgs/ucr-logo.png">
     </div>
-    
-    <div  padding-vertical>
-        <button ion-button  color="danger">
-            <ion-icon padding-right name="logo-googleplus"></ion-icon>
-             Sing in with Google+
-          </button>
-    </div>
-    
-    
+
+
   </div>
 
 </ion-content>
