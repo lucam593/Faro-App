@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, forwardRef } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 
 /**
@@ -16,6 +17,9 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 })
 export class LoginPage {
 
+  data = null;
+
+
   constructor(private toast: ToastController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -24,9 +28,12 @@ export class LoginPage {
   }
 
   facebookLogin() {
+
+   
+
     let toast = this.toast.create({
-      message: 'Facebook Login Success',
-      duration: 3000,
+      message: 'aaa',
+      duration: 1000,
       position: 'top'
     });
 
@@ -35,12 +42,14 @@ export class LoginPage {
     });
 
     toast.present();
+
+
   }
 
   googleLogin() {
     let toast = this.toast.create({
       message: 'Google Login Success',
-      duration: 3000,
+      duration: 1000,
       position: 'top'
     });
 
@@ -54,7 +63,7 @@ export class LoginPage {
   guestLogin() {
     let toast = this.toast.create({
       message: 'You are using the app as guest ',
-      duration: 3000,
+      duration: 1000,
       position: 'top'
     });
 
@@ -63,6 +72,13 @@ export class LoginPage {
     });
 
     toast.present();
+    this.loadHomePage();
   }
+
+  loadHomePage() {
+    this.navCtrl.setRoot(HomePage, {}, { animate: true, direction: 'forward' });
+  }
+
+
 
 }
