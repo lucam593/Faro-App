@@ -32,7 +32,7 @@ export class LoginPage {
    
 
     let toast = this.toast.create({
-      message: 'aaa',
+      message: 'Ingresando como estudiante',
       duration: 1000,
       position: 'top'
     });
@@ -46,23 +46,10 @@ export class LoginPage {
 
   }
 
-  googleLogin() {
-    let toast = this.toast.create({
-      message: 'Google Login Success',
-      duration: 1000,
-      position: 'top'
-    });
-
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-
-    toast.present();
-  }
 
   guestLogin() {
     let toast = this.toast.create({
-      message: 'You are using the app as guest ',
+      message: 'Usando la aplicacion como inivitado ',
       duration: 1000,
       position: 'top'
     });

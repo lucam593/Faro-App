@@ -1,0 +1,16 @@
+{
+    "simulation":{
+        "correct" : 0,
+        "incorrect" : 0
+    },
+    "allRandom":{
+        "correct" : 0,
+        "incorrect" : 0
+    },
+    "exam":{
+        "correct" : 0,
+        "incorrect" : 0
+    }
+
+
+}
