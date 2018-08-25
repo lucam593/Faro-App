@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { ChartsModule } from 'ng2-charts';
 import { IonicStorageModule } from '@ionic/storage';
@@ -15,6 +16,7 @@ import { AboutPage } from '../pages/about/about';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { MenuProvider } from '../providers/menu/menu';
 
 
 
@@ -33,7 +35,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ChartsModule,
-    IonicStorageModule.forRoot()    
+    IonicStorageModule.forRoot(),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -50,6 +53,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     InAppBrowser,
+    MenuProvider,
+    HttpClient,
   ]
 })
 export class AppModule {}

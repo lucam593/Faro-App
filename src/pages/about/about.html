@@ -21,37 +21,88 @@
   <ion-card>
     <ion-card-title>
       <h2 style="font-weight: bold" text-center>
-          Sobre Mate para Bachi
-      </h2>      
+        Sobre Mate para Bachi
+      </h2>
     </ion-card-title>
     <ion-card-content>
-      <p text-justify>"Mate para Bachi" es una aplicación móvil con el objetivo de brindar apoyo a los estudiantes de
-        último año de la educación secundaría en Costa Rica, específicamente en el área de matemáticas. Fué 
-        desarrollada en la Universidad de Costa Rica, Sede de Occidente, Recinto de San Ramón, bajo la tutela 
-        del trabajo comunal universitario "Laboratorio de Matemáticas".
+      <p text-justify>"Mate para Bachi" es una aplicación móvil con el objetivo de brindar apoyo a los estudiantes de último año de la educación
+        secundaría en Costa Rica, específicamente en el área de matemáticas. Fué desarrollada en la Universidad de Costa
+        Rica, Sede de Occidente, Recinto de San Ramón, bajo la tutela del trabajo comunal universitario "Laboratorio de Matemáticas".
       </p>
     </ion-card-content>
   </ion-card>
 
   <ion-card>
-   
-      <img src="assets/imgs/lab.jpeg">
-    
-      <ion-card-content>
-        <p>El laboratorio de matemáticas da la oportunidad a la comunidad de aprender matemáticas
-          de manera divertida y didactica por medio del juego, que facilite una atmósfera de aprendisaje 
-          y enseñanza.
-        </p>
-      </ion-card-content>
-    
-      <ion-row>
-        <ion-col>
-          <button ion-button icon-start clear>
-            <div>Visitar página</div>
-          </button>
-        </ion-col>     
-      </ion-row>
-    
-    </ion-card>
 
+    <img src="assets/imgs/lab.jpeg">
+
+    <ion-card-content>
+      <p>El laboratorio de matemáticas da la oportunidad a la comunidad de aprender matemáticas de manera divertida y didactica
+        por medio del juego, que facilite una atmósfera de aprendisaje y enseñanza.
+      </p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear (click)="tcuSite()">
+          <div>Visitar página</div>
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+  <ion-card>
+
+    <img src="assets/imgs/tcu2.png">
+
+    <ion-card-content>
+      <p>Es una actividad universitaria interdiciplinaria realizada por estudiantes y docentes, quienes interactúan con las
+        comunidades de una manera dinámica y crítica de modo que contribuyen a la atención y resolución de los problemas
+        concretos que sufre la sociedad Costarricense.
+      </p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear (click)="tcuSite2()">
+          <div>Visitar página</div>
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+  <ion-card>
+
+    <img src="assets/imgs/so.png">
+
+    <ion-card-content>
+      <p>La Sede Occidente, ubicada en San Ramón de Alajuela, a 59 km de San José, fue fundada en abril de 1968 y es la más
+        desarrollada de la Universidad de Costa Rica. Cuenta con una población de mas de 2820 estudiantes, La Sede de Occidente
+        cuenta con recintos de San Ramón y de Grecia.
+      </p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear (click)="so()">
+          <div>Visitar página</div>
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+
+  <ion-card>
+
+    <img src="assets/imgs/tcu.png">
+
+  </ion-card>
+
+  <ion-card>
+
+    <img src="assets/imgs/ucr.png">
+
+  </ion-card>
 </ion-content>
