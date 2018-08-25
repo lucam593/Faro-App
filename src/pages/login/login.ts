@@ -1,6 +1,9 @@
 import { Component, forwardRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { StudentRegistrationPage } from '../student-registration/student-registration';
+import { Storage } from '@ionic/storage';
+
 
 
 /**
@@ -20,28 +23,43 @@ export class LoginPage {
   data = null;
 
 
-  constructor(private toast: ToastController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    private toast: ToastController,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private storage: Storage,
+    public loadingCtrl: LoadingController, ) {
+
+    let loading = this.loadingCtrl.create({
+      spinner: 'crescent',
+      content: 'Espere por favor.',
+      duration: 500
+    });
+
+    loading.present();
+
+    this.storage.get('isLogin').then((val) => {
+      if (val == true) {
+        this.loadHomePage();
+      }
+    }).catch((error: any) => {
+
+    });
+
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  ionViewCanEnter() {
+
+  }
+
   facebookLogin() {
 
-   
-
-    let toast = this.toast.create({
-      message: 'Ingresando como estudiante',
-      duration: 1000,
-      position: 'top'
-    });
-
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-
-    toast.present();
+    this.navCtrl.push(StudentRegistrationPage);
 
 
   }
@@ -51,7 +69,7 @@ export class LoginPage {
     let toast = this.toast.create({
       message: 'Usando la aplicacion como inivitado ',
       duration: 1000,
-      position: 'top'
+      position: 'bottom'
     });
 
     toast.onDidDismiss(() => {
@@ -65,6 +83,7 @@ export class LoginPage {
   loadHomePage() {
     this.navCtrl.setRoot(HomePage, {}, { animate: true, direction: 'forward' });
   }
+
 
 
 
