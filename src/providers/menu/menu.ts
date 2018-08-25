@@ -4,6 +4,15 @@ import {ScoresPage} from '../../pages/scores/scores';
 import { HomePage } from '../../pages/home/home';
 import { LogoutPage } from '../../pages/logout/logout';
 import { AboutPage } from '../../pages/about/about';
+import { QExamsPage} from '../../pages/q-exams/q-exams';
+import { QRandomPage } from '../../pages/q-random/q-random';
+import { QSimulationPage} from '../../pages/q-simulation/q-simulation';
+import { QTopicsPage } from '../../pages/q-topics/q-topics';
+import { GeometryPage } from '../../pages/geometry/geometry';
+import { AlgebraPage} from '../../pages/algebra/algebra';
+import { StadisticsPage } from '../../pages/stadistics/stadistics';
+
+
 
 @Injectable()
 export class MenuProvider {
@@ -18,43 +27,30 @@ export class MenuProvider {
       title: 'Preguntas',
       subPages: [{
         title: 'Todo Aleatorio',
-        component: ScoresPage,
+        component: QRandomPage,
       }, {
         title: 'Por Temas',
-        component: LogoutPage,
+        component: QTopicsPage,
       }, {
         title: 'Simular Examen',
-        component: LogoutPage,
+        component: QSimulationPage,
       }, {
         title: 'Examenes Anteriores',
-        component: LogoutPage,
+        component: QExamsPage,
       }]
     },{
-      title: 'Resultados',
-      subPages: [{
-        title: 'Todo Aleatorio',
-        component: ScoresPage,
-      }, {
-        title: 'Por Temas',
-        component: LogoutPage,
-      }, {
-        title: 'Simular Examen',
-        component: LogoutPage,
-      }, {
-        title: 'Examenes Anteriores',
-        component: LogoutPage,
-      }]
+      title: 'Resultados',component: ScoresPage
     },{
       title: 'Temas de examen',
       subPages: [{
         title: 'Geometria',
-        component: ScoresPage,
+        component: GeometryPage,
       }, {
         title: 'Algebra',
-        component: LogoutPage,
+        component: AlgebraPage,
       }, {
         title: 'Estaditica y Probabilidad',
-        component: LogoutPage,
+        component: StadisticsPage,
       }]
     },{
       title: 'Sobre Nosotros', component: AboutPage
