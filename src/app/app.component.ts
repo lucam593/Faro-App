@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ScoresPage } from '../pages/scores/scores';
 import { LoginPage } from '../pages/login/login';
 import { LogoutPage } from '../pages/logout/logout';
+import { AboutPage } from '../pages/about/about';
 
 @Component({
   templateUrl: 'app.html'
@@ -25,6 +26,7 @@ export class MyApp {
     this.pages = [
       { title: 'Inicio', component: HomePage },
       { title: 'Resultados', component: ScoresPage },
+      { title: 'Sobre Nosotros', component: AboutPage},
       { title: 'Cerrar sesión', component: LogoutPage },
     ];
 

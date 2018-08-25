@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the LogoutPage page.
@@ -15,7 +17,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class LogoutPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+
   }
 
   ionViewDidLoad() {
@@ -24,6 +27,7 @@ export class LogoutPage {
 
 
   logoutMethod(){
-    alert('Cerrando sesión');
+    this.storage.clear();
+    this.navCtrl.setRoot(LoginPage, {}, { animate: true, direction: 'forward' });
   }
 }
