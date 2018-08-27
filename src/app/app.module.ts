@@ -21,6 +21,8 @@ import { GeometryPage } from '../pages/geometry/geometry';
 import { AlgebraPage} from '../pages/algebra/algebra';
 import { StadisticsPage } from '../pages/stadistics/stadistics';
 
+import { MathJaxDirective } from '../directives/math-jax/math-jax';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -44,7 +46,8 @@ import { MenuProvider } from '../providers/menu/menu';
     QTopicsPage,
     GeometryPage,
     AlgebraPage,
-    StadisticsPage
+    StadisticsPage,
+    MathJaxDirective
 
   ],
   imports: [
