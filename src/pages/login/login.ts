@@ -30,21 +30,24 @@ export class LoginPage {
     private storage: Storage,
     public loadingCtrl: LoadingController, ) {
 
-    let loading = this.loadingCtrl.create({
-      spinner: 'crescent',
-      content: 'Espere por favor.',
-      duration: 500
-    });
+      
+        let loading = this.loadingCtrl.create({
+          spinner: 'crescent',
+          content: 'Iniciando Componentes',
+          duration: 1000
+        });
+    
+        loading.present();
+    
+        this.storage.get('isLogin').then((val) => {
+          if (val == true) {
+            this.loadHomePage();
+          }
+        }).catch((error: any) => {
+    
+        }); 
 
-    loading.present();
 
-    this.storage.get('isLogin').then((val) => {
-      if (val == true) {
-        this.loadHomePage();
-      }
-    }).catch((error: any) => {
-
-    });
 
 
   }

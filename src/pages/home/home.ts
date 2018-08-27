@@ -11,7 +11,9 @@ export class HomePage {
   formulae : String ;
 
   constructor(public navCtrl: NavController) {
-    this.formulae="`ax^2 + bx + c = 0`";
+    this.formulae="`sin(at)= sqrt(sin ((x^2)^4))`";
+
+    
   }
 
   
