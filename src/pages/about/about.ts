@@ -24,15 +24,15 @@ export class AboutPage {
   }
 
   tcuSite() {
-    this.iab.create('http://http://so.ucr.ac.cr/laboratorio-de-matematicas');
+    this.iab.create('http://so.ucr.ac.cr/laboratorio-de-matematicas',"_system", "location=yes");
   }
 
   tcuSite2() {
-    this.iab.create('http://so.ucr.ac.cr/trabajo-comunal-universitario');
+    this.iab.create('http://so.ucr.ac.cr/trabajo-comunal-universitario',"_system", "location=yes");
   }
 
   so() {
-    this.iab.create('http://so.ucr.ac.cr/');
+    this.iab.create('http://so.ucr.ac.cr/',"_system", "location=yes");
   }
 
 

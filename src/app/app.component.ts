@@ -4,10 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuProvider } from '../providers/menu/menu';
 
-import { HomePage } from '../pages/home/home';
-import { ScoresPage } from '../pages/scores/scores';
-import { LogoutPage } from '../pages/logout/logout';
-import { AboutPage } from '../pages/about/about';
+
 import { LoginPage } from '../pages/login/login';
 
 @Component({
