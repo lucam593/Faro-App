@@ -22,7 +22,7 @@ export class HomePage {
   constructor( private toast: ToastController,public navCtrl: NavController) {
     this.firstFormula="Considere las siguientes figuras que corresponden a las partes de un cono despues de hacerce un corte paralelo a la base: `sqrt(x^2)`";
     this.secondFormula = "De acuerdo con los datos de las figuras anteriores, ¿Cuál es la medida en centimetros de \"h\"?"
-    this.photo = "../assets/imgs/questionImg.png"
+    this.photo = "../assets/imgs/questionImg.jpg"
     this.firstAnswer = "20";
     this.secondAnswer = "16";
     this.tirthAnswer = "12"
