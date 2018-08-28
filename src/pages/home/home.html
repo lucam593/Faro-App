@@ -21,7 +21,7 @@
     {{secondFormula}}
   </div>
 
-  <ion-list radio-group [(ngModel)]="respuesta" padding-vertical>
+  <ion-list radio-group [(ngModel)]="respuesta" *ngIf="uniqueAnswer" padding-vertical>
     <ion-item>
       <ion-label>{{firstAnswer}}</ion-label>
       <ion-radio value="1" checked></ion-radio>
@@ -39,6 +39,11 @@
       <ion-radio value="4"></ion-radio>
     </ion-item>
   </ion-list>
+
+  <ion-item padding-vertical *ngIf="!uniqueAnswer">
+    <ion-label floating>Respuesta</ion-label>
+    <ion-input type="number" [(ngModel)]="numberAnswer"></ion-input>
+  </ion-item>
 
   <button ion-button color="ucr" outline (click)="functionAnswered()">Responder</button>
 

@@ -10,6 +10,7 @@ export class HomePage {
 
   firstFormula : String ;
   respuesta: String;
+  numberAnswer: Number;
   secondFormula : String ;
   photo: String;
   firstAnswer: String;
@@ -17,6 +18,7 @@ export class HomePage {
   tirthAnswer: String;
   fourthAnswer: String;
   correctAnswer: String;
+  uniqueAnswer: Boolean;
 
 
   constructor( private toast: ToastController,public navCtrl: NavController) {
@@ -28,6 +30,7 @@ export class HomePage {
     this.tirthAnswer = "12"
     this.fourthAnswer = "10";
     this.correctAnswer = "3";
+    this.uniqueAnswer = true;
   }
 
 
