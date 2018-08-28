@@ -8,26 +8,57 @@ import { NavController, ToastController } from 'ionic-angular';
 })
 export class HomePage {
 
-  formulae : String ;
+  firstFormula : String ;
   respuesta: String;
+  secondFormula : String ;
+  photo: String;
+  firstAnswer: String;
+  secondAnswer: String;
+  tirthAnswer: String;
+  fourthAnswer: String;
+  correctAnswer: String;
+
 
   constructor( private toast: ToastController,public navCtrl: NavController) {
-    this.formulae="Unas palabras de prueba para el caso de formulas y texto: `sqrt(x^2)`";
-
-    
+    this.firstFormula="Considere las siguientes figuras que corresponden a las partes de un cono despues de hacerce un corte paralelo a la base: `sqrt(x^2)`";
+    this.secondFormula = "De acuerdo con los datos de las figuras anteriores, ¿Cuál es la medida en centimetros de \"h\"?"
+    this.photo = "../assets/imgs/questionImg.png"
+    this.firstAnswer = "20";
+    this.secondAnswer = "16";
+    this.tirthAnswer = "12"
+    this.fourthAnswer = "10";
+    this.correctAnswer = "3";
   }
 
 
   functionAnswered(){
     
+    let answer = this.respuesta.toString();
 
-    let toast = this.toast.create({
-      message: "Respuesta " + this.respuesta.toString() + "!!",
-      duration: 1000,
-      position: 'middle'
-    });
+    if(answer === this.correctAnswer){
+      
+      let toast = this.toast.create({
+        message: "Respuesta correcta",
+        duration: 1000,
+        position: 'middle'
+      });
 
-    toast.present();
+      toast.present();
+
+    }else{
+      
+      let toast = this.toast.create({
+        message: "Respuesta incorrecta",
+        duration: 1000,
+        position: 'middle'
+      });
+
+      toast.present();
+    }
+
+    
+
+    
   }
 
   
