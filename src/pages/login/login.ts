@@ -75,10 +75,6 @@ export class LoginPage {
       position: 'bottom'
     });
 
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
-    });
-
     toast.present();
     this.loadHomePage();
   }

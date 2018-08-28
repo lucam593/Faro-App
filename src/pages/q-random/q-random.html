@@ -10,12 +10,16 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>QRandom</ion-title>
+    <ion-title>Todo Aleatorio</ion-title>
   </ion-navbar>
 
 </ion-header>
-
+  
 
 <ion-content padding>
+  <div [innerHTML]="data">
+    {{data}}
+  </div>
 
+  <input #ffrr type="number" value="33"/>
 </ion-content>

@@ -7,13 +7,30 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding text-center>
   
-    Esto es un ejemplo con MathJax de una formula:
+    
   
-  <div [MathJax]="formulae">
-    {{formulae}}
+  <div [MathJax]="formulae" text-justify>
+     {{formulae}}
   </div>
+
+  <ion-list radio-group [(ngModel)]="respuesta" padding-vertical>
+    <ion-item>
+      <ion-label>Respuesta 1</ion-label>
+      <ion-radio value="Incorrecta 1" checked></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Respuesta 2</ion-label>
+      <ion-radio value="Incorrecta 2"></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Respuesta 3</ion-label>
+      <ion-radio value="correcta 3"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button color="ucr" outline (click)="functionAnswered()">Responder</button>
 
 
 

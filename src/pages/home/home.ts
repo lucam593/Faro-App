@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 
 
 @Component({
@@ -9,11 +9,25 @@ import { NavController } from 'ionic-angular';
 export class HomePage {
 
   formulae : String ;
+  respuesta: String;
 
-  constructor(public navCtrl: NavController) {
-    this.formulae="`sin(at)= sqrt(sin ((x^2)^4))`";
+  constructor( private toast: ToastController,public navCtrl: NavController) {
+    this.formulae="Unas palabras de prueba para el caso de formulas y texto: `sqrt(x^2)`";
 
     
+  }
+
+
+  functionAnswered(){
+    
+
+    let toast = this.toast.create({
+      message: "Respuesta " + this.respuesta.toString() + "!!",
+      duration: 1000,
+      position: 'middle'
+    });
+
+    toast.present();
   }
 
   
