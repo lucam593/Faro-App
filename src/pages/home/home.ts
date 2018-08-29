@@ -35,7 +35,20 @@ export class HomePage {
 
 
   functionAnswered(){
+    if(this.uniqueAnswer){
+      this.verifyUniqueAnswer();
+    }else{
+      this.verifyNumberAnswer();
+    } 
     
+  }
+
+  verifyNumberAnswer(){
+
+  }
+
+  verifyUniqueAnswer(){
+          
     let answer = this.respuesta.toString();
 
     if(answer === this.correctAnswer){
@@ -58,11 +71,6 @@ export class HomePage {
 
       toast.present();
     }
-
-    
-
-    
   }
-
   
 }
