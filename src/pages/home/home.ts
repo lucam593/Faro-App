@@ -30,7 +30,7 @@ export class HomePage {
     this.tirthAnswer = "12"
     this.fourthAnswer = "10";
     this.correctAnswer = "3";
-    this.uniqueAnswer = true;
+    this.uniqueAnswer = false;
   }
 
 
@@ -44,7 +44,7 @@ export class HomePage {
   }
 
   verifyNumberAnswer(){
-
+    alert(this.numberAnswer.toString());
   }
 
   verifyUniqueAnswer(){
