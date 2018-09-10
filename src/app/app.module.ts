@@ -27,6 +27,7 @@ import { MathJaxDirective } from '../directives/math-jax/math-jax';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuProvider } from '../providers/menu/menu';
+import { PreguntasProvider } from '../providers/preguntas/preguntas';
 
 
 
@@ -47,7 +48,7 @@ import { MenuProvider } from '../providers/menu/menu';
     GeometryPage,
     AlgebraPage,
     StadisticsPage,
-    MathJaxDirective
+    MathJaxDirective,
 
   ],
   imports: [
@@ -55,7 +56,7 @@ import { MenuProvider } from '../providers/menu/menu';
     IonicModule.forRoot(MyApp),
     ChartsModule,
     IonicStorageModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -81,6 +82,7 @@ import { MenuProvider } from '../providers/menu/menu';
     InAppBrowser,
     MenuProvider,
     HttpClient,
+    PreguntasProvider,
   ]
 })
 export class AppModule {}

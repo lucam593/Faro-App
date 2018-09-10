@@ -1,0 +1,6 @@
+Route::get('matebachi/todoaleatorio',['as' => 'matebachi/todoaleatorio', 'uses' => 'apiController@todoAletorio']);
+Route::get('matebachi/algebra',['as' => 'matebachi/algebra', 'uses' => 'apiController@algebra']);
+Route::get('matebachi/eyp',['as' => 'matebachi/eyp', 'uses' => 'apiController@eyp']);
+Route::get('matebachi/geometria',['as' => 'matebachi/geometria', 'uses' => 'apiController@geometria']);
+Route::get('matebachi/anno/{anno}',['as' => 'matebachi/anno', 'uses' => 'apiController@examenAnno']);
+Route::get('matebachi/simulacro',['as' => 'matebachi/simulacro', 'uses' => 'apiController@simulacro']);
