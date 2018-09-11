@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class HomePage {
   uniqueAnswer: Boolean;
 
 
-  constructor( private toast: ToastController,public navCtrl: NavController) {
+  constructor( private toast: ToastController,public navCtrl: NavController,private storage: Storage) {
     this.firstFormula="Considere las siguientes figuras que corresponden a las partes de un cono despues de hacerce un corte paralelo a la base: `sqrt(x^2)`";
     this.secondFormula = "De acuerdo con los datos de las figuras anteriores, ¿Cuál es la medida en centimetros de \"h\"?"
     this.photo = "../assets/imgs/questionImg.jpg"
@@ -31,6 +32,34 @@ export class HomePage {
     this.fourthAnswer = "10";
     this.correctAnswer = "3";
     this.uniqueAnswer = false;
+    this.startVariables();
+  }
+
+
+  startVariables(){
+   this.storage.get('firstTime').then((val)=>{
+    if(val==true){
+      this.storage.set('ARCorrect',0);
+      this.storage.set('ARIncorrect',0);
+      this.storage.set('EYPCorrect',0);
+      this.storage.set('EYPIncorrect',0);
+      this.storage.set('GeoCorrect',0);
+      this.storage.set('GeoIncorrect',0);
+      this.storage.set('AlgCorrect',0);
+      this.storage.set('AlgIncorrect',0);
+      this.storage.set('SimCorrect',0);
+      this.storage.set('SimIncorrect',0);
+      this.storage.set('AnnICorrect',0);
+      this.storage.set('AnnIInCorrect',0);
+      this.storage.set('AnnIICorrect',0);
+      this.storage.set('AnnIIInCorrect',0);
+      this.storage.set('AnnIIICorrect',0);
+      this.storage.set('AnnIIIInCorrect',0);
+      this.storage.set('firstTime',false);
+      //create the method to show the tutorial like a slider
+    }else{
+    }
+   });
   }
 
 

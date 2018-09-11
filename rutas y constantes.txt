@@ -1,0 +1,33 @@
+Route::get('api/todoaleatorio',['as' => 'api/todoaleatorio', 'uses' => 'apiController@todoAletorio']);
+Route::get('api/algebra',['as' => 'api/algebra', 'uses' => 'apiController@algebra']);
+Route::get('api/eyp',['as' => 'api/eyp', 'uses' => 'apiController@eyp']);
+Route::get('api/geometria',['as' => 'api/geometria', 'uses' => 'apiController@geometria']);
+Route::get('api/anno/{anno}',['as' => 'api/anno', 'uses' => 'apiController@examenAnno']);
+Route::get('api/simulacro',['as' => 'api/simulacro', 'uses' => 'apiController@simulacro']);
+
+
+Variables from database used for the stadistics
+- ARCorrect
+- ARIncorrect
+..................................
+- EYPCorrect
+- EYPIncorrect
+..................................
+- GeoCorrect
+- GeoIncorrect
+..................................
+- AlgCorrect
+- AlgIncorrect
+...................................
+- SimCorrect
+- SimIncorrect
+...................................
+- AnnICorrect
+- AnnIInCorrect
+...................................
+- AnnIICorrect
+- AnnIIInCorrect
+...................................
+- AnnIIICorrect
+- AnnIIIInCorrect
+...................................

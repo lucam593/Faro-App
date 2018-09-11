@@ -41,7 +41,7 @@ export class MenuProvider {
     },{
       title: 'Resultados',component: ScoresPage
     },{
-      title: 'Temas de examen',
+      title: 'Temas',
       subPages: [{
         title: 'Geometria',
         component: GeometryPage,

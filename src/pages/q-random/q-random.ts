@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { PreguntasProvider } from '../../providers/preguntas/preguntas';
+import { Storage } from '@ionic/storage';
 
 
 /**
@@ -31,19 +32,24 @@ export class QRandomPage {
   fourthAnswer: String = "";
   correctAnswer: String = "";
   uniqueAnswer: Boolean;
+  isCorrect: Boolean;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public preguntas: PreguntasProvider,
     private toast: ToastController,
-    public loadingCtrl: LoadingController) {
+    public loadingCtrl: LoadingController,
+    private storage: Storage) {
 
-    this.loadingComponent('Cargando Pregunta');
     this.LoadQuestion();
+    this.loadingComponent('Cargando Pregunta');
+    setTimeout(() => {
+      this.completelyLoaded = true;
+    }, 1000);
 
   }
 
-  loadingComponent(text:string) {
+  loadingComponent(text: string) {
     let loading = this.loadingCtrl.create({
       spinner: 'crescent',
       content: text,
@@ -58,7 +64,7 @@ export class QRandomPage {
       (data) => {
         this.datos = data;
         this.firstFormula = this.datos.Primer_parrafo;
-        this.photo = 'http://localhost:8000/storage/' + this.datos.Imagen;
+        this.photo = 'https://mate-bachi.000webhostapp.com/storage/' + this.datos.Imagen;
         this.secondFormula = this.datos.Segundo_parrafo;
         this.uniqueAnswer = this.datos.Es_unica;
         this.firstAnswer = this.datos.Primer_ru;
@@ -66,7 +72,7 @@ export class QRandomPage {
         this.tirthAnswer = this.datos.Tercera_ru;
         this.fourthAnswer = this.datos.Cuarta_ru;
         this.correctAnswer = this.datos.Respuesta;
-        this.completelyLoaded = true;
+
 
       },
       (error) => { alert(error.message); }
@@ -77,13 +83,15 @@ export class QRandomPage {
 
   }
 
-  skip(){
+  skip() {
     this.completelyLoaded = false;
-    this.loadingComponent('Cargando nueva pregunta.');
-    setTimeout("",1000);
     this.LoadQuestion();
+    this.loadingComponent('Cargando nueva pregunta.');
+    setTimeout(() => {
+      this.completelyLoaded = true;
+    }, 1000);
+    
   }
-
 
   functionAnswered() {
     if (this.uniqueAnswer) {
@@ -91,38 +99,74 @@ export class QRandomPage {
     } else {
       this.verifyNumberAnswer();
     }
+    this.DBWriteAllRandom();
+    setTimeout(() => {
+      this.skip();
+    }, 1000);
 
   }
 
   verifyNumberAnswer() {
     alert(this.numberAnswer.toString());
+
+    let answer = this.respuesta.toString();
+
+    if (answer == this.numberAnswer.toString()) {
+      this.correct();
+    } else {
+      this.incorrect();
+    }
+  }
+
+  DBWriteAllRandom(){
+    let tempCount = 0;
+    if(this.isCorrect){
+      this.storage.get('ARCorrect').then((val)=>{
+        tempCount = val + 1;
+        this.storage.set('ARCorrect',tempCount);
+      });
+    }else{
+      this.storage.get('ARIncorrect').then((val)=>{
+        tempCount = val + 1;
+        this.storage.set('ARIncorrect',tempCount);
+      });
+    }
+    
+  }
+
+  correct() {
+    let toast = this.toast.create({
+      message: "Respuesta correcta!!",
+      duration: 1000,
+      position: 'middle'
+    });
+
+    toast.present();
+
+    this.isCorrect =  true;
+  }
+
+  incorrect() {
+    let toast = this.toast.create({
+      message: " Respuesta incorrecta!!",
+      duration: 1000,
+      position: 'middle'
+    });
+
+    toast.present();
+    this.isCorrect =  false;
   }
 
   verifyUniqueAnswer() {
 
     let answer = this.respuesta.toString();
 
-
     if (answer == this.correctAnswer) {
-
-      let toast = this.toast.create({
-        message: "Respuesta correcta",
-        duration: 1000,
-        position: 'middle'
-      });
-
-      toast.present();
-
+      this.correct();
     } else {
-
-      let toast = this.toast.create({
-        message: "Respuesta incorrecta",
-        duration: 1000,
-        position: 'middle'
-      });
-
-      toast.present();
+      this.incorrect();
     }
+
   }
 
 }

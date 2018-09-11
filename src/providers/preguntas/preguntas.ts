@@ -16,19 +16,19 @@ export class PreguntasProvider {
   }
 
   todoAleatorio(){
-    return this.http.get('http://127.0.0.1:8000/api/api/todoaleatorio');
+    return this.http.get('https://mate-bachi.000webhostapp.com/api/api/todoaleatorio');
   }
 
   algebra(){
-    return this.http.get('https://mate-bachi.000webhostapp.com/matebachi/algebra');
+    return this.http.get('https://mate-bachi.000webhostapp.com/api/api/algebra');
   }
 
   estadistica(){
-    return this.http.get('https://mate-bachi.000webhostapp.com/matebachi/algebra');
+    return this.http.get('https://mate-bachi.000webhostapp.com/api/api/algebra');
   }
 
   geometria(){
-    return this.http.get('https://mate-bachi.000webhostapp.com/matebachi/geometria');
+    return this.http.get('https://mate-bachi.000webhostapp.com/api/api/geometria');
   }
 
   simulacro(){
@@ -38,7 +38,7 @@ export class PreguntasProvider {
   anno(ano: number){
     let tempAno:number = ano;
 
-    let url:string = 'https://mate-bachi.000webhostapp.com/matebachi/anno/' + tempAno;
+    let url:string = 'https://mate-bachi.000webhostapp.com/api/api/anno/' + tempAno;
 
     return this.http.get(url);
   }

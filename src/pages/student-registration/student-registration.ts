@@ -47,6 +47,7 @@ export class StudentRegistrationPage {
     this.storage.set('name', this.todo.controls['name'].value);
     this.storage.set('secondName', this.todo.controls['secondName'].value);
     this.storage.set('isLogin', true);
+    this.storage.set('firstTime', true);
 
     let toast = this.toast.create({
       message: 'Registro existoso ',
