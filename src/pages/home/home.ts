@@ -26,12 +26,12 @@ export class HomePage {
     this.firstFormula="Considere las siguientes figuras que corresponden a las partes de un cono despues de hacerce un corte paralelo a la base: `sqrt(x^2)`";
     this.secondFormula = "De acuerdo con los datos de las figuras anteriores, ¿Cuál es la medida en centimetros de \"h\"?"
     this.photo = "../assets/imgs/questionImg.jpg"
-    this.firstAnswer = "20";
-    this.secondAnswer = "16";
-    this.tirthAnswer = "12"
-    this.fourthAnswer = "10";
+    this.firstAnswer = "`x^2+(y-4)^2 = 9`";
+    this.secondAnswer = "`(x-4)^2+y^2 = 9`";
+    this.tirthAnswer = "`(x-3)^2+y^2 = 16`"
+    this.fourthAnswer = "`x^2+(y-3)^2 = 16`";
     this.correctAnswer = "3";
-    this.uniqueAnswer = false;
+    this.uniqueAnswer = true;
     this.startVariables();
   }
 
