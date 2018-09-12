@@ -29,8 +29,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { MenuProvider } from '../providers/menu/menu';
 import { PreguntasProvider } from '../providers/preguntas/preguntas';
 
-
-
+import {AccordionComponent } from '../components/accordion/accordion';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -49,10 +49,11 @@ import { PreguntasProvider } from '../providers/preguntas/preguntas';
     AlgebraPage,
     StadisticsPage,
     MathJaxDirective,
-
+    AccordionComponent,
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     ChartsModule,
     IonicStorageModule.forRoot(),
