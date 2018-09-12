@@ -140,7 +140,7 @@ export class QTopicsPage {
     } else {
       this.verifyNumberAnswer();
     }
-    this.DBWriteAllRandom();
+    this.DBWriteTopics();
     setTimeout(() => {
       this.skip();
     }, 1000);
@@ -159,19 +159,51 @@ export class QTopicsPage {
     }
   }
 
-  DBWriteAllRandom() {
+  DBWriteTopics() {
     let tempCount = 0;
-    if (this.isCorrect) {
-      this.storage.get('ARCorrect').then((val) => {
-        tempCount = val + 1;
-        this.storage.set('ARCorrect', tempCount);
-      });
-    } else {
-      this.storage.get('ARIncorrect').then((val) => {
-        tempCount = val + 1;
-        this.storage.set('ARIncorrect', tempCount);
-      });
-    }
+    if(this.topic==1){
+
+      if (this.isCorrect) {
+        this.storage.get('GeoCorrect').then((val) => {
+          tempCount = val + 1;
+          this.storage.set('GeoCorrect', tempCount);
+        });
+      } else {
+        this.storage.get('GeoIncorrect').then((val) => {
+          tempCount = val + 1;
+          this.storage.set('GeoIncorrect', tempCount);
+        });
+      }
+
+    }else if(this.topic==1){
+
+      if (this.isCorrect) {
+        this.storage.get('ARCorrect').then((val) => {
+          tempCount = val + 1;
+          this.storage.set('ARCorrect', tempCount);
+        });
+      } else {
+        this.storage.get('ARIncorrect').then((val) => {
+          tempCount = val + 1;
+          this.storage.set('ARIncorrect', tempCount);
+        });
+      }
+
+    }else if(this.topic==1){
+
+      if (this.isCorrect) {
+        this.storage.get('EYPCorrect').then((val) => {
+          tempCount = val + 1;
+          this.storage.set('EYPCorrect', tempCount);
+        });
+      } else {
+        this.storage.get('EYPIncorrect').then((val) => {
+          tempCount = val + 1;
+          this.storage.set('EYPIncorrect', tempCount);
+        });
+      }
+
+    }  
 
   }
 
