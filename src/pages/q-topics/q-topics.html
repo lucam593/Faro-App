@@ -40,22 +40,47 @@
     </div>
 
     <ion-list radio-group [(ngModel)]="respuesta" *ngIf="uniqueAnswer" padding-vertical>
-      <ion-item>
-        <ion-label>{{firstAnswer}}</ion-label>
-        <ion-radio value="1" checked></ion-radio>
-      </ion-item>
-      <ion-item>
-        <ion-label>{{secondAnswer}}</ion-label>
-        <ion-radio value="2"></ion-radio>
-      </ion-item>
-      <ion-item>
-        <ion-label>{{tirthAnswer}}</ion-label>
-        <ion-radio value="3"></ion-radio>
-      </ion-item>
-      <ion-item>
-        <ion-label>{{fourthAnswer}}</ion-label>
-        <ion-radio value="4"></ion-radio>
-      </ion-item>
+        <ion-item>
+
+            <ion-label>
+              <div name="firstAnswer" [MathJax]="firstAnswer" text-justify>
+                {{firstAnswer}}
+              </div>
+            </ion-label>
+      
+            <ion-radio value="1" checked></ion-radio>
+      
+          </ion-item>
+          <ion-item>
+      
+            <ion-label>
+              <div name="secondAnswer" [MathJax]="secondAnswer" text-justify>
+                {{secondAnswer}}
+              </div>
+            </ion-label>
+      
+            <ion-radio value="2"></ion-radio>
+          </ion-item>
+          <ion-item>
+      
+            <ion-label>
+              <div name="tirthAnswer" [MathJax]="tirthAnswer" text-justify>
+                {{tirthAnswer}}
+              </div>
+            </ion-label>
+      
+            <ion-radio value="3"></ion-radio>
+          </ion-item>
+          <ion-item>
+      
+            <ion-label>
+              <div name="fourthAnswer" [MathJax]="fourthAnswer" text-justify>
+                {{fourthAnswer}}
+              </div>
+            </ion-label>
+            
+            <ion-radio value="4"></ion-radio>
+          </ion-item>
     </ion-list>
 
     <ion-item padding-vertical *ngIf="!uniqueAnswer">
