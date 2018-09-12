@@ -12,11 +12,20 @@ import { HttpClientModule } from '@angular/common/http';
 export class PreguntasProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello PreguntasProvider Provider');
   }
 
   todoAleatorio(){
     return this.http.get('https://mate-bachi.000webhostapp.com/api/api/todoaleatorio');
+  }
+
+  temas(topic:Number){
+    if(topic==1){
+      return this.geometria();
+    }else if(topic==2){
+      return this.algebra();
+    }else if(topic==3){
+      return this.estadistica();
+    }
   }
 
   algebra(){
@@ -24,7 +33,7 @@ export class PreguntasProvider {
   }
 
   estadistica(){
-    return this.http.get('https://mate-bachi.000webhostapp.com/api/api/algebra');
+    return this.http.get('https://mate-bachi.000webhostapp.com/api/api/eyp');
   }
 
   geometria(){

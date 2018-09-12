@@ -31,7 +31,7 @@ export class QRandomPage {
   tirthAnswer: String = "";
   fourthAnswer: String = "";
   correctAnswer: String = "";
-  uniqueAnswer: Boolean;
+  uniqueAnswer: Boolean = true;
   isCorrect: Boolean;
 
   constructor(public navCtrl: NavController,
