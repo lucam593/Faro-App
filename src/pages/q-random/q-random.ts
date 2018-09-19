@@ -66,7 +66,7 @@ export class QRandomPage {
         this.firstFormula = this.datos.Primer_parrafo;
         this.photo = 'https://mate-bachi.000webhostapp.com/storage/' + this.datos.Imagen;
         this.secondFormula = this.datos.Segundo_parrafo;
-        this.uniqueAnswer = this.datos.Es_unica;
+        this.uniqueAnswer = (this.datos.Es_unica == true);
         this.firstAnswer = this.datos.Primer_ru;
         this.secondAnswer = this.datos.Segunda_ru;
         this.tirthAnswer = this.datos.Tercera_ru;

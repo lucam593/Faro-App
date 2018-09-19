@@ -7,18 +7,91 @@
 <ion-header>
 
   <ion-navbar color="ucr">
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-    <ion-title>Examenes por años</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{title}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <div *ngIf="displayButtons">
+
     <img src="assets/imgs/oldTests.png" margin-vertical alt="">
-    <button ion-button block margin-vertical color="ucr" >Examen 2017</button>
-    <button ion-button block margin-vertical color="guess" >Examen 2016</button>
-    <button ion-button block margin-vertical color="secondary" >Examen 2015</button>
+    <button ion-button block margin-vertical color="ucr" (click)="loadPastI()">Examen {{year-1}}</button>
+    <button ion-button block margin-vertical color="guess" (click)="loadPastII()">Examen {{year-2}}</button>
+    <button ion-button block margin-vertical color="secondary" (click)="loadPastII()">Examen {{year-3}}</button>
+
+  </div>
+
+  <div *ngIf="completelyLoaded">
+
+    <div name="firstParagraph" [MathJax]="firstFormula" text-justify>
+      {{firstFormula}}
+    </div>
+
+    <img src="{{photo}}" alt="" padding-vertical>
+
+    <div name="secondParagraph" [MathJax]="secondFormula" text-justify>
+      {{secondFormula}}
+    </div>
+
+    <ion-list radio-group [(ngModel)]="respuesta" *ngIf="uniqueAnswer" padding-vertical>
+      <ion-item>
+
+        <ion-label>
+          <div name="firstAnswer" [MathJax]="firstAnswer" text-justify>
+            {{firstAnswer}}
+          </div>
+        </ion-label>
+
+        <ion-radio value="1" checked></ion-radio>
+
+      </ion-item>
+      <ion-item>
+
+        <ion-label>
+          <div name="secondAnswer" [MathJax]="secondAnswer" text-justify>
+            {{secondAnswer}}
+          </div>
+        </ion-label>
+
+        <ion-radio value="2"></ion-radio>
+      </ion-item>
+      <ion-item>
+
+        <ion-label>
+          <div name="tirthAnswer" [MathJax]="tirthAnswer" text-justify>
+            {{tirthAnswer}}
+          </div>
+        </ion-label>
+
+        <ion-radio value="3"></ion-radio>
+      </ion-item>
+      <ion-item>
+
+        <ion-label>
+          <div name="fourthAnswer" [MathJax]="fourthAnswer" text-justify>
+            {{fourthAnswer}}
+          </div>
+        </ion-label>
+
+        <ion-radio value="4"></ion-radio>
+      </ion-item>
+    </ion-list>
+
+    <ion-item padding-vertical *ngIf="!uniqueAnswer">
+      <ion-label floating>Respuesta</ion-label>
+      <ion-input type="number" [(ngModel)]="numberAnswer"></ion-input>
+    </ion-item>
+
+    <button ion-button color="ucr" outline (click)="functionAnswered()">Responder</button>
+    <button ion-button color="ucr" outline (click)="comeBack()">Volver</button>
+
+
+  </div>
+
 </ion-content>
