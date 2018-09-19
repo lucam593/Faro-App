@@ -97,19 +97,7 @@ export class QExamsPage {
     }, 1000);
   }
 
-  loadFirstTime(year: Number) {
-    this.preguntas.anno(this.topic).subscribe(
-      (data) => {
 
-        if (this.firstLoad) {
-          this.datos = data;
-          this.firstLoad = false;
-        }
-
-      },
-      (error) => { alert(error.message); }
-    )
-  }
 
   loadingComponent(text: string) {
     let loading = this.loadingCtrl.create({
@@ -127,7 +115,7 @@ export class QExamsPage {
 
 
         this.datos = data;
-        if (this.datos.length <= this.index) {
+        if (this.datos.length >= this.index) {
 
           this.firstFormula = this.datos[this.index].Primer_parrafo;
           this.photo = 'https://mate-bachi.000webhostapp.com/storage/' + this.datos[this.index].Imagen;
