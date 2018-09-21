@@ -107,7 +107,6 @@ export class QRandomPage {
   }
 
   verifyNumberAnswer() {
-    alert(this.numberAnswer.toString());
 
     let answer = this.respuesta.toString();
 

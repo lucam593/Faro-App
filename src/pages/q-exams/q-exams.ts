@@ -20,7 +20,7 @@ export class QExamsPage {
   datos: any;
 
   title: String = "Examenes anteriores";
-  topic: Number = 0;
+  topic: number = 0;
   displayButtons: Boolean = true;
   completelyLoaded: Boolean = false;
   firstFormula: String = "";
@@ -35,7 +35,7 @@ export class QExamsPage {
   correctAnswer: String = "";
   uniqueAnswer: Boolean = true;
   isCorrect: Boolean;
-  year: Number;
+  year: number;
   index: number;
   firstLoad: Boolean;
 
@@ -65,8 +65,8 @@ export class QExamsPage {
   }
 
   loadPastI() {
-    this.topic = 2017;
-    this.title = "Preguntas de 2017";
+    this.topic = this.year-1;
+    this.title = "Preguntas de "+this.topic;
     this.displayButtons = false;
     this.LoadQuestion();
     this.loadingComponent('Cargando Pregunta');
@@ -76,8 +76,8 @@ export class QExamsPage {
   }
 
   loadPastII() {
-    this.topic = 2016;
-    this.title = "Preguntas de 2016";
+    this.topic = this.year-2;
+    this.title = "Preguntas de "+this.topic;
     this.displayButtons = false;
     this.LoadQuestion();
     this.loadingComponent('Cargando Pregunta');
@@ -87,8 +87,8 @@ export class QExamsPage {
   }
 
   loadPastIII() {
-    this.topic = 2015;
-    this.title = "Preguntas de 2015";
+    this.topic = this.year-3;
+    this.title = "Preguntas de "+this.topic;
     this.displayButtons = false;
     this.LoadQuestion();
     this.loadingComponent('Cargando Pregunta');
@@ -96,8 +96,6 @@ export class QExamsPage {
       this.completelyLoaded = true;
     }, 1000);
   }
-
-
 
   loadingComponent(text: string) {
     let loading = this.loadingCtrl.create({
@@ -128,7 +126,10 @@ export class QExamsPage {
           this.correctAnswer = this.datos[this.index].Respuesta;
 
         } else {
-          alert("Examen finalizado");
+          this.loadingComponent('Calculando resultados');
+          setTimeout(() => {
+            this.comeBack();
+          }, 1000);
         }
 
 
@@ -166,8 +167,6 @@ export class QExamsPage {
   }
 
   verifyNumberAnswer() {
-    alert(this.numberAnswer.toString());
-
     let answer = this.respuesta.toString();
 
     if (answer == this.numberAnswer.toString()) {
@@ -179,45 +178,45 @@ export class QExamsPage {
 
   DBWriteTopics() {
     let tempCount = 0;
-    if (this.topic == 1) {
+    if (this.topic == (this.year - 1)) {
 
       if (this.isCorrect) {
-        this.storage.get('GeoCorrect').then((val) => {
+        this.storage.get('AnnICorrect').then((val) => {
           tempCount = val + 1;
-          this.storage.set('GeoCorrect', tempCount);
+          this.storage.set('AnnICorrect', tempCount);
         });
       } else {
-        this.storage.get('GeoIncorrect').then((val) => {
+        this.storage.get('AnnIInCorrect').then((val) => {
           tempCount = val + 1;
-          this.storage.set('GeoIncorrect', tempCount);
+          this.storage.set('AnnIInCorrect', tempCount);
         });
       }
 
-    } else if (this.topic == 1) {
+    } else if (this.topic == (this.year - 2)) {
 
       if (this.isCorrect) {
-        this.storage.get('ARCorrect').then((val) => {
+        this.storage.get('AnnIICorrect').then((val) => {
           tempCount = val + 1;
-          this.storage.set('ARCorrect', tempCount);
+          this.storage.set('AnnIICorrect', tempCount);
         });
       } else {
-        this.storage.get('ARIncorrect').then((val) => {
+        this.storage.get('AnnIIInCorrect').then((val) => {
           tempCount = val + 1;
-          this.storage.set('ARIncorrect', tempCount);
+          this.storage.set('AnnIIInCorrect', tempCount);
         });
       }
 
-    } else if (this.topic == 1) {
+    } else if (this.topic == (this.year - 3)) {
 
       if (this.isCorrect) {
-        this.storage.get('EYPCorrect').then((val) => {
+        this.storage.get('AnnIIICorrect').then((val) => {
           tempCount = val + 1;
-          this.storage.set('EYPCorrect', tempCount);
+          this.storage.set('AnnIIICorrect', tempCount);
         });
       } else {
-        this.storage.get('EYPIncorrect').then((val) => {
+        this.storage.get('AnnIIIInCorrect').then((val) => {
           tempCount = val + 1;
-          this.storage.set('EYPIncorrect', tempCount);
+          this.storage.set('AnnIIIInCorrect', tempCount);
         });
       }
 
