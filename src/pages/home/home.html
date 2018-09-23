@@ -7,73 +7,10 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding text-center>
+<ion-content padding text-center class="general-background">
 
-
-
-  <div name="firstParagraph" [MathJax]="firstFormula" text-justify>
-    {{firstFormula}}
-  </div>
-
-  <img src="{{photo}}" alt="" padding-vertical>
-
-  <div name="secondParagraph" [MathJax]="secondFormula" text-justify>
-    {{secondFormula}}
-  </div>
-
-  <ion-list radio-group [(ngModel)]="respuesta" *ngIf="uniqueAnswer" padding-vertical>
-    <ion-item>
-
-      <ion-label>
-        <div name="firstAnswer" [MathJax]="firstAnswer" text-justify>
-          {{firstAnswer}}
-        </div>
-      </ion-label>
-
-      <ion-radio value="1" checked></ion-radio>
-
-    </ion-item>
-    <ion-item>
-
-      <ion-label>
-        <div name="secondAnswer" [MathJax]="secondAnswer" text-justify>
-          {{secondAnswer}}
-        </div>
-      </ion-label>
-
-      <ion-radio value="2"></ion-radio>
-    </ion-item>
-    <ion-item>
-
-      <ion-label>
-        <div name="tirthAnswer" [MathJax]="tirthAnswer" text-justify>
-          {{tirthAnswer}}
-        </div>
-      </ion-label>
-
-      <ion-radio value="3"></ion-radio>
-    </ion-item>
-    <ion-item>
-
-      <ion-label>
-        <div name="fourthAnswer" [MathJax]="fourthAnswer" text-justify>
-          {{fourthAnswer}}
-        </div>
-      </ion-label>
-      
-      <ion-radio value="4"></ion-radio>
-    </ion-item>
-  </ion-list>
-
-  <ion-item padding-vertical *ngIf="!uniqueAnswer">
-    <ion-label floating>Respuesta</ion-label>
-    <ion-input type="number" [(ngModel)]="numberAnswer"></ion-input>
-  </ion-item>
-
-  <button ion-button color="ucr" outline (click)="functionAnswered()">Responder</button>
-
-
-
-
-
+  <h1 class="main-text">Mate para Bachi!</h1>
+  <img class="img-format" src="assets/imgs/textIcon.png" />
+  <h1 class="main-text">Desarrollado por el TCU Laboratorio de Matemáticas</h1>
+  <h4 class="main-text">Universidad de Costa Rica - Sede de Occidente</h4>
 </ion-content>
