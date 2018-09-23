@@ -41,7 +41,7 @@ export class PreguntasProvider {
   }
 
   simulacro(){
-
+    return this.http.get('https://mate-bachi.000webhostapp.com/api/api/simulacro');
   }
 
   anno(ano: Number){

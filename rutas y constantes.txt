@@ -31,3 +31,9 @@ Variables from database used for the stadistics
 - AnnIIICorrect
 - AnnIIIInCorrect
 ...................................
+- SimulationCorrect
+- SimulationIncorrect
+...................................
+
+Variables for the simulation examenAnno
+- simulation

@@ -68,6 +68,8 @@ export class QExamsPage {
     this.topic = this.year-1;
     this.title = "Preguntas de "+this.topic;
     this.displayButtons = false;
+    this.storage.set('AnnICorrect', 0);
+    this.storage.set('AnnIInCorrect', 0);
     this.LoadQuestion();
     this.loadingComponent('Cargando Pregunta');
     setTimeout(() => {
@@ -79,6 +81,8 @@ export class QExamsPage {
     this.topic = this.year-2;
     this.title = "Preguntas de "+this.topic;
     this.displayButtons = false;
+    this.storage.set('AnnIICorrect', 0);
+    this.storage.set('AnnIIInCorrect', 0);
     this.LoadQuestion();
     this.loadingComponent('Cargando Pregunta');
     setTimeout(() => {
@@ -90,6 +94,8 @@ export class QExamsPage {
     this.topic = this.year-3;
     this.title = "Preguntas de "+this.topic;
     this.displayButtons = false;
+    this.storage.set('AnnIIICorrect', 0);
+    this.storage.set('AnnIIIInCorrect', 0);
     this.LoadQuestion();
     this.loadingComponent('Cargando Pregunta');
     setTimeout(() => {
@@ -136,10 +142,6 @@ export class QExamsPage {
       },
       (error) => { alert(error.message); }
     )
-  }
-
-  ionViewDidLoad() {
-
   }
 
   skip() {

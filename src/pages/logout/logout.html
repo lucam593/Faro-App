@@ -17,18 +17,12 @@
 
 
 <ion-content padding text-center>
-  <ion-card text-center>
-    <img src="../assets/imgs/logout.png" alt="">
-    <ion-row text-center>
-        <ion-col text-center>
-          <button ion-button icon-start clear  (click)="logoutMethod()">
-            <ion-icon name="log-out"></ion-icon>
-            <div>Confirmar</div>
-          </button>
-        </ion-col>
-        <ion-col>
-        </ion-col>
-      </ion-row>
-  </ion-card>
-  
+
+  <img src="../assets/imgs/logout.png" alt="" margin-vertical>
+
+  <button ion-button icon-start margin-vertical (click)="logoutMethod()">
+    <ion-icon name="log-out"></ion-icon>
+    <div>Confirmar</div>
+  </button>
+
 </ion-content>

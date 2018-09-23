@@ -57,6 +57,9 @@ export class HomePage {
       this.storage.set('AnnIIICorrect',0);
       this.storage.set('AnnIIIInCorrect',0);
       this.storage.set('firstTime',false);
+      this.storage.set('SimulationCorrect',false);
+      this.storage.set('SimulationIncorrect',false);
+
       //create the method to show the tutorial like a slider
     }else{
     }
