@@ -85,8 +85,9 @@ export class QSimulationPage {
 
   LoadQuestion() {
 
-    this.storage.get('SimulationCorrect').then((val) => {
+    this.storage.get('simulation').then((val) => {
       this.datos = val;
+
 
       if (this.datos.length >= this.index) {
 

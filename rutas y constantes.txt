@@ -35,5 +35,5 @@ Variables from database used for the stadistics
 - SimulationIncorrect
 ...................................
 
-Variables for the simulation examenAnno
+Variables for the simulation 
 - simulation

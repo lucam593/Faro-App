@@ -20,16 +20,82 @@
 <ion-content padding>
 
   <ion-card text-center>
-    <ion-card-header color="primary">
-      Resultados obtenidos
+    <ion-card-header color="primary" (click)="eventAR()" class="card-header">
+      Todo aleatorio
     </ion-card-header>
-    <div style="display: block">
-      <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
-        (chartClick)="chartClicked($event)">
-      </canvas>
-    </div>
+    <ion-card-content *ngIf="isAR">
+      <div style="display: block">
+        <canvas baseChart [data]="ARData" [labels]="ARLabels" [chartType]="ARType" (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </ion-card-content>
   </ion-card>
 
+  <ion-card text-center>
+    <ion-card-header color="primary" (click)="eventALG()">
+      Algebra y relaciones
+    </ion-card-header>
+    <ion-card-content *ngIf="isALG">
+      <div style="display: block">
+        <canvas baseChart [data]="ARData" [labels]="ARLabels" [chartType]="ARType" (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card text-center>
+    <ion-card-header color="primary" (click)="eventGEO()">
+      Geometria
+    </ion-card-header>
+    <ion-card-content *ngIf="isGEO">
+      <div style="display: block">
+        <canvas baseChart [data]="ARData" [labels]="ARLabels" [chartType]="ARType" (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card text-center>
+    <ion-card-header color="primary" (click)="eventEYP()">
+      Estadistica y probabilidad
+    </ion-card-header>
+    <ion-card-content *ngIf="isEYP">
+      <div style="display: block">
+        <canvas baseChart [data]="ARData" [labels]="ARLabels" [chartType]="ARType" (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card text-center>
+    <ion-card-header color="primary" (click)="eventSIM()">
+      Simulacion de examen
+    </ion-card-header>
+    <ion-card-content *ngIf="isSIM">
+      <div style="display: block">
+        <canvas baseChart [data]="ARData" [labels]="ARLabels" [chartType]="ARType" (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card text-center>
+    <ion-card-header color="primary" (click)="eventOT()">
+      Examenes Anteriores
+    </ion-card-header>
+    <ion-card-content *ngIf="isOT">
+      <div style="display: block">
+        <canvas baseChart [data]="ARData" [labels]="ARLabels" [chartType]="ARType" (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </ion-card-content>
+  </ion-card>
 
 
 </ion-content>

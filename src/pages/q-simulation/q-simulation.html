@@ -18,12 +18,12 @@
 
 <ion-content padding>
 
-  <div *ngIf="displayButtons">
+  <div *ngIf="displayButtons" text-center>
 
     <img src="assets/imgs/exam-icon.png" alt="">
-    <button ion-button margin-vertical color="ucr" (click)="StartQuestions()">
-      <img src="assets/imgs/start.png" alt="">
-    </button>
+
+    <img src="assets/imgs/start.png" alt="" margin-vertical (click)="StartQuestions()">
+
 
   </div>
 
