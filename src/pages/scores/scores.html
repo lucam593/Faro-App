@@ -77,7 +77,7 @@
     </ion-card-header>
     <ion-card-content *ngIf="isSIM">
       <div style="display: block">
-        <canvas baseChart [data]="SIMData" [colors]="Colours"  [labels]="Labels" [chartType]="ARType" (chartHover)="chartHovered($event)"
+        <canvas baseChart [data]="SIMData" [colors]="Colours" [labels]="Labels" [chartType]="ARType" (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)">
         </canvas>
       </div>
@@ -89,10 +89,34 @@
       Examenes Anteriores
     </ion-card-header>
     <ion-card-content *ngIf="isOT">
-      <div style="display: block">
-        <canvas baseChart [data]="OTData" [colors]="Colours" [labels]="Labels" [chartType]="ARType" (chartHover)="chartHovered($event)"
+      <div style="display: block" margin-vertical text-center>
+
+        <h2>Examen 2017</h2>
+
+        <canvas baseChart [data]="OTIData" [colors]="Colours" [labels]="Labels" [chartType]="ARType" (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)">
         </canvas>
+
+      </div>
+      <hr>
+      <div style="display: block" margin-vertical text-center>
+
+        <h2>Examen 2016</h2>
+
+        <canvas baseChart [data]="OTIIData" [colors]="Colours" [labels]="Labels" [chartType]="ARType" (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+
+      </div>
+      <hr>
+      <div style="display: block" margin-vertical text-center>
+
+        <h2>Examen 2015</h2>
+
+        <canvas baseChart [data]="OTIIIData" [colors]="Colours" [labels]="Labels" [chartType]="ARType" (chartHover)="chartHovered($event)"
+          (chartClick)="chartClicked($event)">
+        </canvas>
+
       </div>
     </ion-card-content>
   </ion-card>

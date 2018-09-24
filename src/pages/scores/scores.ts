@@ -22,7 +22,9 @@ export class ScoresPage {
   public ALGData: number[] = [1, 1];
   public GEOData: number[] = [1, 1];
   public EYPData: number[] = [1, 1];
-  public OTData: number[] = [1, 1];
+  public OTIData: number[] = [1, 1];
+  public OTIIData: number[] = [1, 1];
+  public OTIIIData: number[] = [1, 1];
   public SIMData: number[] = [1, 1];
   public Colours: Array<any> = [{ backgroundColor: ['#D05938', '#3863D0'] }];
   public ARType: string = 'doughnut';
@@ -93,24 +95,44 @@ export class ScoresPage {
       this.ARData[1] = incorrect;
     });
 
+    this.storage.get('AnnICorrect').then((val) => {
+      correct = val;
+      this.OTIData[1] = correct;
+    });
+
+    this.storage.get('AnnIInCorrect').then((val) => {
+      incorrect = val;
+      this.OTIData[0] = incorrect;
+    });
+
     this.storage.get('AnnIICorrect').then((val) => {
       correct = val;
-      this.OTData[0] = correct;
+      this.OTIIData[1] = correct;
     });
 
     this.storage.get('AnnIIInCorrect').then((val) => {
       incorrect = val;
-      this.OTData[1] = incorrect;
+      this.OTIIData[0] = incorrect;
+    });
+
+    this.storage.get('AnnIIICorrect').then((val) => {
+      correct = val;
+      this.OTIIIData[1] = correct;
+    });
+
+    this.storage.get('AnnIIIInCorrect').then((val) => {
+      incorrect = val;
+      this.OTIIIData[0] = incorrect;
     });
 
     this.storage.get('SimulationCorrect').then((val) => {
       correct = val;
-      this.SIMData[0] = correct;
+      this.SIMData[1] = correct;
     });
 
     this.storage.get('SimulationIncorrect').then((val) => {
       incorrect = val;
-      this.SIMData[1] = incorrect;
+      this.SIMData[0] = incorrect;
     });
 
     
