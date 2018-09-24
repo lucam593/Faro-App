@@ -20,6 +20,7 @@ import { QTopicsPage } from '../pages/q-topics/q-topics';
 import { GeometryPage } from '../pages/geometry/geometry';
 import { AlgebraPage} from '../pages/algebra/algebra';
 import { StadisticsPage } from '../pages/stadistics/stadistics';
+import {SliderPage } from '../pages/slider/slider';
 
 import { MathJaxDirective } from '../directives/math-jax/math-jax';
 
@@ -50,6 +51,7 @@ import { HttpModule } from '@angular/http';
     StadisticsPage,
     MathJaxDirective,
     AccordionComponent,
+    SliderPage,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +76,8 @@ import { HttpModule } from '@angular/http';
     QTopicsPage,
     GeometryPage,
     AlgebraPage,
-    StadisticsPage
+    StadisticsPage,
+    SliderPage
   ],
   providers: [
     StatusBar,

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
+import { NavController, ToastController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Http } from '@angular/http';
+import { SliderPage } from '../slider/slider';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class HomePage {
   uniqueAnswer: Boolean;
 
 
-  constructor( private toast: ToastController,public navCtrl: NavController,private storage: Storage, private http: Http) {
+  constructor( private toast: ToastController,public navCtrl: NavController,private storage: Storage, private http: Http, public navParams: NavParams) {
     this.firstFormula="Considere las siguientes figuras que corresponden a las partes de un cono despues de hacerce un corte paralelo a la base: `sqrt(x^2)`";
     this.secondFormula = "De acuerdo con los datos de las figuras anteriores, ¿Cuál es la medida en centimetros de \"h\"?"
     this.photo = "../assets/imgs/questionImg.jpg"
@@ -59,7 +60,7 @@ export class HomePage {
       this.storage.set('firstTime',false);
       this.storage.set('SimulationCorrect',false);
       this.storage.set('SimulationIncorrect',false);
-
+      this.navCtrl.setRoot(SliderPage, {}, { animate: true, direction: 'forward' });
       //create the method to show the tutorial like a slider
     }else{
     }
