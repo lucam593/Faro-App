@@ -49,6 +49,8 @@ export class QSimulationPage {
 
         this.datos = data;
         this.storage.set('simulation', this.datos);
+        this.storage.set('SimulationCorrect', 0);
+        this.storage.set('SimulationIncorrect', 0);
 
       },
       (error) => {

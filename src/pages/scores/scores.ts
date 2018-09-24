@@ -1,5 +1,6 @@
-import { Component,ViewChild,OnInit, Renderer, Input } from '@angular/core';
+import { Component, Renderer } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the ScoresPage page.
@@ -16,16 +17,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 export class ScoresPage {
 
-  public ARLabels: string[] = ['Fallos', 'Aciertos'];
-  public ARData: number[] = [1, 1];
+  public Labels: string[] = ['Fallos', 'Aciertos'];
+  public ARData: number[] = [0,0];
+  public ALGData: number[] = [1, 1];
+  public GEOData: number[] = [1, 1];
+  public EYPData: number[] = [1, 1];
+  public OTData: number[] = [1, 1];
+  public SIMData: number[] = [1, 1];
+  public Colours: Array<any> = [{ backgroundColor: ['#D05938', '#3863D0'] }];
   public ARType: string = 'doughnut';
+  //-----------------------------------
   public isEYP: Boolean = false;
   public isGEO: Boolean = false;
   public isALG: Boolean = false;
   public isAR: Boolean = false;
   public isOT: Boolean = false;
   public isSIM: Boolean = false;
-
+  //------------------------------------
 
   // events
   public chartClicked(e: any): void {
@@ -36,13 +44,80 @@ export class ScoresPage {
     console.log(e);
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public renderer: Renderer) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public renderer: Renderer,
+    private storage: Storage) {
+    
+      let correct = 0;
+      let incorrect = 0;
+
+    this.storage.get('GeoCorrect').then((val) => {
+      correct = val;
+      this.GEOData[0] = correct;
+    });
+
+    this.storage.get('GeoIncorrect').then((val) => {
+      incorrect = val;
+      this.GEOData[1] = incorrect;
+    });
+
+    this.storage.get('EYPCorrect').then((val) => {
+      correct = val;
+      this.EYPData[0] = correct;
+    });
+
+    this.storage.get('EYPIncorrect').then((val) => {
+      incorrect = val;
+      this.EYPData[1] = incorrect;
+    });
+
+    this.storage.get('AlgCorrect').then((val) => {
+      correct = val;
+      this.ALGData[0] = correct;
+    });
+
+    this.storage.get('AlgIncorrect').then((val) => {
+      incorrect = val;
+      this.ALGData[1] = incorrect;
+    });
+
+    this.storage.get('ARCorrect').then((val) => {
+      correct = val;
+      this.ARData[0] = correct;
+      
+    });
+
+    this.storage.get('ARIncorrect').then((val) => {
+      incorrect = val;
+      this.ARData[1] = incorrect;
+    });
+
+    this.storage.get('AnnIICorrect').then((val) => {
+      correct = val;
+      this.OTData[0] = correct;
+    });
+
+    this.storage.get('AnnIIInCorrect').then((val) => {
+      incorrect = val;
+      this.OTData[1] = incorrect;
+    });
+
+    this.storage.get('SimulationCorrect').then((val) => {
+      correct = val;
+      this.SIMData[0] = correct;
+    });
+
+    this.storage.get('SimulationIncorrect').then((val) => {
+      incorrect = val;
+      this.SIMData[1] = incorrect;
+    });
+
     
   }
 
 
   ionViewDidLoad() {
-    
 
   }
 

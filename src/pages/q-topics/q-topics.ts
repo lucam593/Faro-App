@@ -175,21 +175,21 @@ export class QTopicsPage {
         });
       }
 
-    }else if(this.topic==1){
+    }else if(this.topic==2){
 
       if (this.isCorrect) {
-        this.storage.get('ARCorrect').then((val) => {
+        this.storage.get('AlgCorrect').then((val) => {
           tempCount = val + 1;
-          this.storage.set('ARCorrect', tempCount);
+          this.storage.set('AlgCorrect', tempCount);
         });
       } else {
-        this.storage.get('ARIncorrect').then((val) => {
+        this.storage.get('AlgIncorrect').then((val) => {
           tempCount = val + 1;
-          this.storage.set('ARIncorrect', tempCount);
+          this.storage.set('AlgIncorrect', tempCount);
         });
       }
 
-    }else if(this.topic==1){
+    }else if(this.topic==3){
 
       if (this.isCorrect) {
         this.storage.get('EYPCorrect').then((val) => {

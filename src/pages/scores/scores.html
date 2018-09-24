@@ -25,7 +25,7 @@
     </ion-card-header>
     <ion-card-content *ngIf="isAR">
       <div style="display: block">
-        <canvas baseChart [data]="ARData" [labels]="ARLabels" [chartType]="ARType" (chartHover)="chartHovered($event)"
+        <canvas baseChart [data]="ARData" [colors]="Colours" [labels]="Labels" [chartType]="ARType" (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)">
         </canvas>
       </div>
@@ -38,7 +38,7 @@
     </ion-card-header>
     <ion-card-content *ngIf="isALG">
       <div style="display: block">
-        <canvas baseChart [data]="ARData" [labels]="ARLabels" [chartType]="ARType" (chartHover)="chartHovered($event)"
+        <canvas baseChart [data]="ALGData" [colors]="Colours" [labels]="Labels" [chartType]="ARType" (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)">
         </canvas>
       </div>
@@ -51,7 +51,7 @@
     </ion-card-header>
     <ion-card-content *ngIf="isGEO">
       <div style="display: block">
-        <canvas baseChart [data]="ARData" [labels]="ARLabels" [chartType]="ARType" (chartHover)="chartHovered($event)"
+        <canvas baseChart [data]="GEOData" [colors]="Colours" [labels]="Labels" [chartType]="ARType" (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)">
         </canvas>
       </div>
@@ -64,7 +64,7 @@
     </ion-card-header>
     <ion-card-content *ngIf="isEYP">
       <div style="display: block">
-        <canvas baseChart [data]="ARData" [labels]="ARLabels" [chartType]="ARType" (chartHover)="chartHovered($event)"
+        <canvas baseChart [data]="EYPData" [colors]="Colours" [labels]="Labels" [chartType]="ARType" (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)">
         </canvas>
       </div>
@@ -77,7 +77,7 @@
     </ion-card-header>
     <ion-card-content *ngIf="isSIM">
       <div style="display: block">
-        <canvas baseChart [data]="ARData" [labels]="ARLabels" [chartType]="ARType" (chartHover)="chartHovered($event)"
+        <canvas baseChart [data]="SIMData" [colors]="Colours"  [labels]="Labels" [chartType]="ARType" (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)">
         </canvas>
       </div>
@@ -90,7 +90,7 @@
     </ion-card-header>
     <ion-card-content *ngIf="isOT">
       <div style="display: block">
-        <canvas baseChart [data]="ARData" [labels]="ARLabels" [chartType]="ARType" (chartHover)="chartHovered($event)"
+        <canvas baseChart [data]="OTData" [colors]="Colours" [labels]="Labels" [chartType]="ARType" (chartHover)="chartHovered($event)"
           (chartClick)="chartClicked($event)">
         </canvas>
       </div>
