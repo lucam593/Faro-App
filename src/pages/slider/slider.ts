@@ -22,11 +22,19 @@ export class SliderPage {
 
     setTimeout(() =>
       {this.slides.slideTo(1, 2000);}
-      , 10000
+      , 4000
     );
     setTimeout(() =>
       {this.slides.slideTo(2, 2000);}
-      , 20000
+      , 8000
+    );
+    setTimeout(() =>
+      {this.slides.slideTo(3, 2000);}
+      , 12000
+    );
+    setTimeout(() =>
+      {this.navCtrl.setRoot(HomePage, {}, { animate: true, direction: 'forward' });}
+      , 16000
     );
        
   }
