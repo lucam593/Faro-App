@@ -56,43 +56,43 @@ export class ScoresPage {
 
     this.storage.get('GeoCorrect').then((val) => {
       correct = val;
-      this.GEOData[0] = correct;
+      this.GEOData[1] = correct;
     });
 
     this.storage.get('GeoIncorrect').then((val) => {
       incorrect = val;
-      this.GEOData[1] = incorrect;
+      this.GEOData[0] = incorrect;
     });
 
     this.storage.get('EYPCorrect').then((val) => {
       correct = val;
-      this.EYPData[0] = correct;
+      this.EYPData[1] = correct;
     });
 
     this.storage.get('EYPIncorrect').then((val) => {
       incorrect = val;
-      this.EYPData[1] = incorrect;
+      this.EYPData[0] = incorrect;
     });
 
     this.storage.get('AlgCorrect').then((val) => {
       correct = val;
-      this.ALGData[0] = correct;
+      this.ALGData[1] = correct;
     });
 
     this.storage.get('AlgIncorrect').then((val) => {
       incorrect = val;
-      this.ALGData[1] = incorrect;
+      this.ALGData[0] = incorrect;
     });
 
     this.storage.get('ARCorrect').then((val) => {
       correct = val;
-      this.ARData[0] = correct;
+      this.ARData[1] = correct;
       
     });
 
     this.storage.get('ARIncorrect').then((val) => {
       incorrect = val;
-      this.ARData[1] = incorrect;
+      this.ARData[0] = incorrect;
     });
 
     this.storage.get('AnnICorrect').then((val) => {

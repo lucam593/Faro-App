@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { PreguntasProvider } from '../../providers/preguntas/preguntas';
 import { Storage } from '@ionic/storage';
+import {ConectionErrorPage} from '../conection-error/conection-error';
 
 
 /**
@@ -75,7 +76,9 @@ export class QRandomPage {
 
 
       },
-      (error) => { alert(error.message); }
+      (error) => { 
+        this.navCtrl.setRoot(ConectionErrorPage, {}, { animate: true, direction: 'forward' });
+       }
     )
   }
 

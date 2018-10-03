@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController, Alert } from 'ionic-angular';
 import { PreguntasProvider } from '../../providers/preguntas/preguntas';
 import { Storage } from '@ionic/storage';
+import {ConectionErrorPage} from '../conection-error/conection-error';
 
 /**
  * Generated class for the QExamsPage page.
@@ -140,7 +141,9 @@ export class QExamsPage {
 
 
       },
-      (error) => { alert(error.message); }
+      (error) => { 
+        this.navCtrl.setRoot(ConectionErrorPage, {}, { animate: true, direction: 'forward' });
+      }
     )
   }
 

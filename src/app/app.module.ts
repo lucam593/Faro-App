@@ -21,6 +21,7 @@ import { GeometryPage } from '../pages/geometry/geometry';
 import { AlgebraPage} from '../pages/algebra/algebra';
 import { StadisticsPage } from '../pages/stadistics/stadistics';
 import {SliderPage } from '../pages/slider/slider';
+import {ConectionErrorPage} from '../pages/conection-error/conection-error';
 
 import { MathJaxDirective } from '../directives/math-jax/math-jax';
 
@@ -52,6 +53,7 @@ import { HttpModule } from '@angular/http';
     MathJaxDirective,
     AccordionComponent,
     SliderPage,
+    ConectionErrorPage,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,8 @@ import { HttpModule } from '@angular/http';
     GeometryPage,
     AlgebraPage,
     StadisticsPage,
-    SliderPage
+    SliderPage,
+    ConectionErrorPage,
   ],
   providers: [
     StatusBar,
