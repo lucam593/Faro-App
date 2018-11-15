@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import {FormGroup,FormBuilder, Validators} from '@angular/forms';
 import { PreguntasProvider } from '../../providers/preguntas/preguntas';
 import { Storage } from '@ionic/storage';
 import {ConectionErrorPage} from '../conection-error/conection-error';
@@ -19,6 +20,7 @@ import {ConectionErrorPage} from '../conection-error/conection-error';
 })
 export class QRandomPage {
 
+  myForm: FormGroup;
   datos: any;
 
   completelyLoaded: Boolean = false;
@@ -40,7 +42,10 @@ export class QRandomPage {
     public preguntas: PreguntasProvider,
     private toast: ToastController,
     public loadingCtrl: LoadingController,
-    private storage: Storage) {
+    private storage: Storage,
+    public formBuilder: FormBuilder) {
+
+    this.myForm = this.createMyForm();
 
     this.LoadQuestion();
     this.loadingComponent('Cargando Pregunta');
@@ -48,6 +53,13 @@ export class QRandomPage {
       this.completelyLoaded = true;
     }, 1000);
 
+  }
+
+  private createMyForm(){
+    return this.formBuilder.group({
+      uniqueAnswerTest: [''],
+      numericAnswer: ['']
+    });
   }
 
   loadingComponent(text: string) {
@@ -64,9 +76,22 @@ export class QRandomPage {
     this.preguntas.todoAleatorio().subscribe(
       (data) => {
         this.datos = data;
-        this.firstFormula = this.datos.Primer_parrafo;
+        if(this.datos.Primer_parrafo == null){
+          this.firstFormula = " ";
+        }else{
+          this.firstFormula = this.datos.Primer_parrafo;
+        }
+        
         this.photo = 'https://mate-bachi.000webhostapp.com/storage/' + this.datos.Imagen;
-        this.secondFormula = this.datos.Segundo_parrafo;
+
+        if(this.datos.Segundo_parrafo == null){
+
+          this.secondFormula = " ";
+
+        }else{
+          this.secondFormula = this.datos.Segundo_parrafo;
+        }
+        
         this.uniqueAnswer = (this.datos.Es_unica == true);
         this.firstAnswer = this.datos.Primer_ru;
         this.secondAnswer = this.datos.Segunda_ru;
@@ -74,6 +99,7 @@ export class QRandomPage {
         this.fourthAnswer = this.datos.Cuarta_ru;
         this.correctAnswer = this.datos.Respuesta;
 
+        
 
       },
       (error) => { 
@@ -103,6 +129,8 @@ export class QRandomPage {
       this.verifyNumberAnswer();
     }
     this.DBWriteAllRandom();
+    this.myForm.controls.uniqueAnswerTest.reset();
+    this.myForm.controls.numericAnswer.reset();
     setTimeout(() => {
       this.skip();
     }, 1000);
@@ -111,9 +139,9 @@ export class QRandomPage {
 
   verifyNumberAnswer() {
 
-    let answer = this.respuesta.toString();
+    let answer = this.correctAnswer + "";
 
-    if (answer == this.numberAnswer.toString()) {
+    if (answer == this.numberAnswer + "") {
       this.correct();
     } else {
       this.incorrect();
