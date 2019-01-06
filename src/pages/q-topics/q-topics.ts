@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController, Alert } from 'ionic-angular';
 import { PreguntasProvider } from '../../providers/preguntas/preguntas';
 import { Storage } from '@ionic/storage';
-import {ConectionErrorPage} from '../conection-error/conection-error';
+import { ConectionErrorPage } from '../conection-error/conection-error';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 /**
  * Generated class for the QTopicsPage page.
@@ -19,6 +20,7 @@ import {ConectionErrorPage} from '../conection-error/conection-error';
 export class QTopicsPage {
 
   datos: any;
+  myForm: FormGroup;
 
   title: String = "Preguntas por temas";
   topic: Number = 0;
@@ -36,18 +38,29 @@ export class QTopicsPage {
   correctAnswer: String = "";
   uniqueAnswer: Boolean = true;
   isCorrect: Boolean;
+  isAnswered: Boolean;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public preguntas: PreguntasProvider,
     private toast: ToastController,
     public loadingCtrl: LoadingController,
-    private storage: Storage) {
+    private storage: Storage,
+    public formBuilder: FormBuilder) {
+
+    this.myForm = this.createMyForm();
 
     this.displayButtons = true;
     this.title = "Preguntas por temas";
 
 
+  }
+
+  private createMyForm() {
+    return this.formBuilder.group({
+      uniqueAnswerTest: [''],
+      numericAnswer: ['']
+    });
   }
 
   comeBack() {
@@ -117,9 +130,9 @@ export class QTopicsPage {
 
 
       },
-      (error) => { 
+      (error) => {
         this.navCtrl.setRoot(ConectionErrorPage, {}, { animate: true, direction: 'forward' });
-       }
+      }
     )
   }
 
@@ -128,6 +141,7 @@ export class QTopicsPage {
   }
 
   skip() {
+    this.myForm = this.createMyForm();
     this.completelyLoaded = false;
     this.LoadQuestion();
     this.loadingComponent('Cargando nueva pregunta.');
@@ -138,11 +152,33 @@ export class QTopicsPage {
   }
 
   functionAnswered() {
+
+    if (this.uniqueAnswer) {
+
+      if (this.respuesta + '' == 'null') {
+
+        this.isAnswered = false;
+      } else {
+        this.isAnswered = true;
+      }
+    } else if (!this.uniqueAnswer) {
+      if (this.numberAnswer == null) {
+        this.isAnswered = false;
+      } else {
+        this.isAnswered = true;
+      }
+    }
+
+
     if (this.uniqueAnswer) {
       this.verifyUniqueAnswer();
     } else {
       this.verifyNumberAnswer();
     }
+
+    this.myForm.controls.uniqueAnswerTest.reset();
+    this.myForm.controls.numericAnswer.reset();
+
     this.DBWriteTopics();
     setTimeout(() => {
       this.skip();
@@ -151,11 +187,9 @@ export class QTopicsPage {
   }
 
   verifyNumberAnswer() {
-    alert(this.numberAnswer.toString());
+    let answer = this.correctAnswer + "";
 
-    let answer = this.respuesta.toString();
-
-    if (answer == this.numberAnswer.toString()) {
+    if (answer == this.numberAnswer + "" && this.isAnswered) {
       this.correct();
     } else {
       this.incorrect();
@@ -164,7 +198,7 @@ export class QTopicsPage {
 
   DBWriteTopics() {
     let tempCount = 0;
-    if(this.topic==1){
+    if (this.topic == 1) {
 
       if (this.isCorrect) {
         this.storage.get('GeoCorrect').then((val) => {
@@ -178,7 +212,7 @@ export class QTopicsPage {
         });
       }
 
-    }else if(this.topic==2){
+    } else if (this.topic == 2) {
 
       if (this.isCorrect) {
         this.storage.get('AlgCorrect').then((val) => {
@@ -192,7 +226,7 @@ export class QTopicsPage {
         });
       }
 
-    }else if(this.topic==3){
+    } else if (this.topic == 3) {
 
       if (this.isCorrect) {
         this.storage.get('EYPCorrect').then((val) => {
@@ -206,7 +240,7 @@ export class QTopicsPage {
         });
       }
 
-    }  
+    }
 
   }
 
@@ -235,10 +269,14 @@ export class QTopicsPage {
 
   verifyUniqueAnswer() {
 
-    let answer = this.respuesta.toString();
+    if (this.isAnswered) {
+      let answer = this.respuesta.toString();
 
-    if (answer == this.correctAnswer) {
-      this.correct();
+      if (answer == this.correctAnswer) {
+        this.correct();
+      } else {
+        this.incorrect();
+      }
     } else {
       this.incorrect();
     }

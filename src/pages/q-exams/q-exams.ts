@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController, Alert } from 'ionic-angular';
 import { PreguntasProvider } from '../../providers/preguntas/preguntas';
 import { Storage } from '@ionic/storage';
-import {ConectionErrorPage} from '../conection-error/conection-error';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ConectionErrorPage } from '../conection-error/conection-error';
 
 /**
  * Generated class for the QExamsPage page.
@@ -18,6 +19,8 @@ import {ConectionErrorPage} from '../conection-error/conection-error';
 })
 export class QExamsPage {
 
+  
+  myForm: FormGroup;
   datos: any;
 
   title: String = "Examenes anteriores";
@@ -36,9 +39,11 @@ export class QExamsPage {
   correctAnswer: String = "";
   uniqueAnswer: Boolean = true;
   isCorrect: Boolean;
+  isAnswered: Boolean;
   year: number;
   index: number;
   firstLoad: Boolean;
+
 
 
   constructor(public navCtrl: NavController,
@@ -46,7 +51,10 @@ export class QExamsPage {
     public preguntas: PreguntasProvider,
     private toast: ToastController,
     public loadingCtrl: LoadingController,
-    private storage: Storage) {
+    private storage: Storage,
+    public formBuilder: FormBuilder) {
+
+    this.myForm = this.createMyForm();
 
     this.displayButtons = true;
     this.title = "Preguntas por temas";
@@ -58,6 +66,13 @@ export class QExamsPage {
 
   }
 
+  private createMyForm(){
+    return this.formBuilder.group({
+      uniqueAnswerTest: [''],
+      numericAnswer: ['']
+    });
+  }
+
   comeBack() {
     this.title = "Preguntas por temas";
     this.topic = 0;
@@ -66,8 +81,16 @@ export class QExamsPage {
   }
 
   loadPastI() {
-    this.topic = this.year-1;
-    this.title = "Preguntas de "+this.topic;
+    this.topic = this.year - 1;
+    this.preguntas.anno(this.topic).subscribe(
+      (data)=>{
+        this.datos = data;
+      },
+      (error) => {
+        this.navCtrl.setRoot(ConectionErrorPage, {}, { animate: true, direction: 'forward' });
+      }
+    );
+    this.title = "Preguntas de " + this.topic;
     this.displayButtons = false;
     this.storage.set('AnnICorrect', 0);
     this.storage.set('AnnIInCorrect', 0);
@@ -79,8 +102,16 @@ export class QExamsPage {
   }
 
   loadPastII() {
-    this.topic = this.year-2;
-    this.title = "Preguntas de "+this.topic;
+    this.topic = this.year - 2;
+    this.preguntas.anno(this.topic).subscribe(
+      (data)=>{
+        this.datos = data;
+      },
+      (error) => {
+        this.navCtrl.setRoot(ConectionErrorPage, {}, { animate: true, direction: 'forward' });
+      }
+    );
+    this.title = "Preguntas de " + this.topic;
     this.displayButtons = false;
     this.storage.set('AnnIICorrect', 0);
     this.storage.set('AnnIIInCorrect', 0);
@@ -92,8 +123,16 @@ export class QExamsPage {
   }
 
   loadPastIII() {
-    this.topic = this.year-3;
-    this.title = "Preguntas de "+this.topic;
+    this.topic = this.year - 3;
+    this.preguntas.anno(this.topic).subscribe(
+      (data)=>{
+        this.datos = data;
+      },
+      (error) => {
+        this.navCtrl.setRoot(ConectionErrorPage, {}, { animate: true, direction: 'forward' });
+      }
+    );
+    this.title = "Preguntas de " + this.topic;
     this.displayButtons = false;
     this.storage.set('AnnIIICorrect', 0);
     this.storage.set('AnnIIIInCorrect', 0);
@@ -115,11 +154,7 @@ export class QExamsPage {
   }
 
   LoadQuestion() {
-    this.preguntas.anno(this.topic).subscribe(
-      (data) => {
-
-
-        this.datos = data;
+       
         if (this.datos.length >= this.index) {
 
           this.firstFormula = this.datos[this.index].Primer_parrafo;
@@ -137,17 +172,12 @@ export class QExamsPage {
           setTimeout(() => {
             this.comeBack();
           }, 1000);
-        }
+        }      
 
-
-      },
-      (error) => { 
-        this.navCtrl.setRoot(ConectionErrorPage, {}, { animate: true, direction: 'forward' });
-      }
-    )
   }
 
   skip() {
+    this.index = this.index + 1;
     this.completelyLoaded = false;
     this.LoadQuestion();
     this.loadingComponent('Cargando nueva pregunta.');
@@ -158,13 +188,32 @@ export class QExamsPage {
   }
 
   functionAnswered() {
-    this.index = this.index + 1;
+
+    if (this.uniqueAnswer){
+      
+      if(this.respuesta + '' == 'null'){
+
+        this.isAnswered = false;
+      } else{
+        this.isAnswered = true;
+      }     
+    }else if( !this.uniqueAnswer){
+      if(this.numberAnswer == null ){
+        this.isAnswered = false;
+      } else{
+        this.isAnswered = true;
+      }     
+    }
+
+    
     if (this.uniqueAnswer) {
       this.verifyUniqueAnswer();
     } else {
       this.verifyNumberAnswer();
     }
     this.DBWriteTopics();
+    this.myForm.controls.uniqueAnswerTest.reset();
+    this.myForm.controls.numericAnswer.reset();
     setTimeout(() => {
       this.skip();
     }, 1000);
@@ -172,9 +221,9 @@ export class QExamsPage {
   }
 
   verifyNumberAnswer() {
-    let answer = this.respuesta.toString();
+    let answer = this.correctAnswer + "";
 
-    if (answer == this.numberAnswer.toString()) {
+    if (answer == this.numberAnswer + ""  && this.isAnswered) {
       this.correct();
     } else {
       this.incorrect();
@@ -254,11 +303,15 @@ export class QExamsPage {
 
   verifyUniqueAnswer() {
 
-    let answer = this.respuesta.toString();
+    if(this.isAnswered){
+      let answer = this.respuesta.toString();
 
-    if (answer == this.correctAnswer) {
-      this.correct();
-    } else {
+      if (answer == this.correctAnswer  ) {
+        this.correct();
+      } else {
+        this.incorrect();
+      }
+    }else{
       this.incorrect();
     }
 

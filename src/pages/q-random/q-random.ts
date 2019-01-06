@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
-import {FormGroup,FormBuilder, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { PreguntasProvider } from '../../providers/preguntas/preguntas';
 import { Storage } from '@ionic/storage';
-import {ConectionErrorPage} from '../conection-error/conection-error';
+import { ConectionErrorPage } from '../conection-error/conection-error';
 
 
 /**
@@ -36,6 +36,7 @@ export class QRandomPage {
   correctAnswer: String = "";
   uniqueAnswer: Boolean = true;
   isCorrect: Boolean;
+  isAnswered: Boolean;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -55,7 +56,7 @@ export class QRandomPage {
 
   }
 
-  private createMyForm(){
+  private createMyForm() {
     return this.formBuilder.group({
       uniqueAnswerTest: [''],
       numericAnswer: ['']
@@ -76,37 +77,40 @@ export class QRandomPage {
     this.preguntas.todoAleatorio().subscribe(
       (data) => {
         this.datos = data;
-        if(this.datos.Primer_parrafo == null){
+        if (this.datos.Primer_parrafo == null) {
           this.firstFormula = " ";
-        }else{
+        } else {
           this.firstFormula = this.datos.Primer_parrafo;
         }
-        
+
         this.photo = 'https://mate-bachi.000webhostapp.com/storage/' + this.datos.Imagen;
 
-        if(this.datos.Segundo_parrafo == null){
+        if (this.datos.Segundo_parrafo == null) {
 
           this.secondFormula = " ";
 
-        }else{
+        } else {
           this.secondFormula = this.datos.Segundo_parrafo;
         }
-        
+
         this.uniqueAnswer = (this.datos.Es_unica == true);
+
         this.firstAnswer = this.datos.Primer_ru;
         this.secondAnswer = this.datos.Segunda_ru;
         this.tirthAnswer = this.datos.Tercera_ru;
         this.fourthAnswer = this.datos.Cuarta_ru;
         this.correctAnswer = this.datos.Respuesta;
 
-        
+
 
       },
-      (error) => { 
+      (error) => {
         this.navCtrl.setRoot(ConectionErrorPage, {}, { animate: true, direction: 'forward' });
-       }
+      }
     )
   }
+
+
 
   ionViewDidLoad() {
 
@@ -119,14 +123,36 @@ export class QRandomPage {
     setTimeout(() => {
       this.completelyLoaded = true;
     }, 1000);
-    
+
   }
 
   functionAnswered() {
+
     if (this.uniqueAnswer) {
+
+      if (this.respuesta + '' == 'null') {
+
+        this.isAnswered = false;
+      } else {
+        this.isAnswered = true;
+      }
+    } else if (!this.uniqueAnswer) {
+      if (this.numberAnswer == null) {
+        this.isAnswered = false;
+      } else {
+        this.isAnswered = true;
+      }
+    }
+
+
+    if (this.uniqueAnswer) {
+
       this.verifyUniqueAnswer();
+
     } else {
+
       this.verifyNumberAnswer();
+
     }
     this.DBWriteAllRandom();
     this.myForm.controls.uniqueAnswerTest.reset();
@@ -141,27 +167,27 @@ export class QRandomPage {
 
     let answer = this.correctAnswer + "";
 
-    if (answer == this.numberAnswer + "") {
+    if (answer == this.numberAnswer + "" && this.isAnswered) {
       this.correct();
     } else {
       this.incorrect();
     }
   }
 
-  DBWriteAllRandom(){
+  DBWriteAllRandom() {
     let tempCount = 0;
-    if(this.isCorrect){
-      this.storage.get('ARCorrect').then((val)=>{
+    if (this.isCorrect) {
+      this.storage.get('ARCorrect').then((val) => {
         tempCount = val + 1;
-        this.storage.set('ARCorrect',tempCount);
+        this.storage.set('ARCorrect', tempCount);
       });
-    }else{
-      this.storage.get('ARIncorrect').then((val)=>{
+    } else {
+      this.storage.get('ARIncorrect').then((val) => {
         tempCount = val + 1;
-        this.storage.set('ARIncorrect',tempCount);
+        this.storage.set('ARIncorrect', tempCount);
       });
     }
-    
+
   }
 
   correct() {
@@ -173,7 +199,7 @@ export class QRandomPage {
 
     toast.present();
 
-    this.isCorrect =  true;
+    this.isCorrect = true;
   }
 
   incorrect() {
@@ -184,18 +210,23 @@ export class QRandomPage {
     });
 
     toast.present();
-    this.isCorrect =  false;
+    this.isCorrect = false;
   }
 
   verifyUniqueAnswer() {
 
-    let answer = this.respuesta.toString();
+    if (this.isAnswered) {
+      let answer = this.respuesta.toString();
 
-    if (answer == this.correctAnswer) {
-      this.correct();
+      if (answer == this.correctAnswer) {
+        this.correct();
+      } else {
+        this.incorrect();
+      }
     } else {
       this.incorrect();
     }
+
 
   }
 

@@ -39,56 +39,61 @@
       {{secondFormula}}
     </div>
 
-    <ion-list radio-group [(ngModel)]="respuesta" *ngIf="uniqueAnswer" padding-vertical>
-      <ion-item>
+    <form [formGroup]="myForm" (ngSubmit)="functionAnswered()">
+      <ion-list radio-group [(ngModel)]="respuesta" *ngIf="uniqueAnswer" formControlName="uniqueAnswerTest" padding-vertical>
+        <ion-item>
 
-        <ion-label>
-          <div name="firstAnswer" [MathJax]="firstAnswer" text-justify>
-            {{firstAnswer}}
-          </div>
-        </ion-label>
+          <ion-label>
+            <div name="firstAnswer" [MathJax]="firstAnswer" text-justify>
+              {{firstAnswer}}
+            </div>
+          </ion-label>
 
-        <ion-radio value="1" checked></ion-radio>
+          <ion-radio value="1" checked></ion-radio>
 
+        </ion-item>
+        <ion-item>
+
+          <ion-label>
+            <div name="secondAnswer" [MathJax]="secondAnswer" text-justify>
+              {{secondAnswer}}
+            </div>
+          </ion-label>
+
+          <ion-radio value="2"></ion-radio>
+        </ion-item>
+        <ion-item>
+
+          <ion-label>
+            <div name="tirthAnswer" [MathJax]="tirthAnswer" text-justify>
+              {{tirthAnswer}}
+            </div>
+          </ion-label>
+
+          <ion-radio value="3"></ion-radio>
+        </ion-item>
+        <ion-item>
+
+          <ion-label>
+            <div name="fourthAnswer" [MathJax]="fourthAnswer" text-justify>
+              {{fourthAnswer}}
+            </div>
+          </ion-label>
+
+          <ion-radio value="4"></ion-radio>
+        </ion-item>
+      </ion-list>
+
+      <ion-item padding-vertical *ngIf="!uniqueAnswer">
+        <ion-label floating>Respuesta</ion-label>
+        <ion-input type="number" [(ngModel)]="numberAnswer" formControlName="numericAnswer"></ion-input>
       </ion-item>
-      <ion-item>
 
-        <ion-label>
-          <div name="secondAnswer" [MathJax]="secondAnswer" text-justify>
-            {{secondAnswer}}
-          </div>
-        </ion-label>
+      <button ion-button color="ucr" type="submit" outline>Responder</button>
+    
+    </form>
 
-        <ion-radio value="2"></ion-radio>
-      </ion-item>
-      <ion-item>
-
-        <ion-label>
-          <div name="tirthAnswer" [MathJax]="tirthAnswer" text-justify>
-            {{tirthAnswer}}
-          </div>
-        </ion-label>
-
-        <ion-radio value="3"></ion-radio>
-      </ion-item>
-      <ion-item>
-
-        <ion-label>
-          <div name="fourthAnswer" [MathJax]="fourthAnswer" text-justify>
-            {{fourthAnswer}}
-          </div>
-        </ion-label>
-
-        <ion-radio value="4"></ion-radio>
-      </ion-item>
-    </ion-list>
-
-    <ion-item padding-vertical *ngIf="!uniqueAnswer">
-      <ion-label floating>Respuesta</ion-label>
-      <ion-input type="number" [(ngModel)]="numberAnswer"></ion-input>
-    </ion-item>
-
-    <button ion-button color="ucr" outline (click)="functionAnswered()">Responder</button>
+    <button ion-button color="ucr" outline (click)="skip()">Omitir</button>
     <button ion-button color="ucr" outline (click)="comeBack()">Volver</button>
 
 

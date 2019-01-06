@@ -29,7 +29,8 @@
       {{secondFormula}}
     </div>
 
-    <form [formGroup]="myForm" (ngSubmit)="functionAnswered()">
+    <form [formGroup]="myForm" (ngSubmit)="functionAnswered()" >
+
       <ion-list radio-group [(ngModel)]="respuesta" *ngIf="uniqueAnswer" formControlName="uniqueAnswerTest"
         padding-vertical>
         <ion-item>
@@ -79,11 +80,12 @@
         <ion-label floating>Respuesta</ion-label>
         <ion-input type="number" [(ngModel)]="numberAnswer" formControlName="numericAnswer"></ion-input>
       </ion-item>
-
       
       <button ion-button color="ucr" type="submit" outline>Responder</button>
+
     </form>
+
     <button ion-button color="ucr" outline (click)="skip()">Omitir</button>
-  </div>
+  </div> 
 
 </ion-content>
