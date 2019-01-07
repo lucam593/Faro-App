@@ -21,41 +21,56 @@ export class MenuProvider {
 
   getSideMenus() {
     return [{
-      title: 'Inicio', component: HomePage
+      title: 'Inicio', 
+      component: HomePage,
+      icon: 'home',
     },
     {
       title: 'Preguntas',
       subPages: [{
-        title: 'Todo Aleatorio',
+        title: 'Aleatorio ',
         component: QRandomPage,
+        icon: 'shuffle',
       }, {
-        title: 'Por Temas',
+        title: 'Temas',
         component: QTopicsPage,
+        icon: 'book',
       }, {
-        title: 'Simular Examen',
+        title: 'Simulación',
         component: QSimulationPage,
+        icon: 'clipboard',
       }, {
-        title: 'Examenes Anteriores',
+        title: 'Anteriores',
         component: QExamsPage,
+        icon: 'return-left',
       }]
     },{
-      title: 'Resultados',component: ScoresPage
+      title: 'Resultados',
+      component: ScoresPage,
+      icon: 'podium',
     },{
       title: 'Temas',
       subPages: [{
         title: 'Geometria',
         component: GeometryPage,
+        icon: 'cube',
       }, {
         title: 'Algebra',
         component: AlgebraPage,
+        icon: 'move',
       }, {
         title: 'Estaditica y Probabilidad',
         component: StadisticsPage,
+        icon: 'stats',
       }]
     },{
-      title: 'Sobre Nosotros', component: AboutPage
+      title: 'Sobre Nosotros', 
+      component: AboutPage,
+      icon: 'alert',
     },{
-      title: 'Cerrar sesión', component: LogoutPage
+      title: 'Cerrar sesión', 
+      component: LogoutPage,
+      icon: 'log-out',
     }];
   }
 }

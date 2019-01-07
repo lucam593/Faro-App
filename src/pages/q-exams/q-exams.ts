@@ -19,7 +19,7 @@ import { ConectionErrorPage } from '../conection-error/conection-error';
 })
 export class QExamsPage {
 
-  
+
   myForm: FormGroup;
   datos: any;
 
@@ -66,7 +66,7 @@ export class QExamsPage {
 
   }
 
-  private createMyForm(){
+  private createMyForm() {
     return this.formBuilder.group({
       uniqueAnswerTest: [''],
       numericAnswer: ['']
@@ -74,6 +74,8 @@ export class QExamsPage {
   }
 
   comeBack() {
+
+
     this.title = "Preguntas por temas";
     this.topic = 0;
     this.displayButtons = true;
@@ -82,65 +84,94 @@ export class QExamsPage {
 
   loadPastI() {
     this.topic = this.year - 1;
+
     this.preguntas.anno(this.topic).subscribe(
-      (data)=>{
+      (data) => {
         this.datos = data;
+
+        this.title = "Preguntas de " + this.topic;
+
+        this.displayButtons = false;
+
+        this.storage.set('AnnICorrect', 0);
+        this.storage.set('AnnIInCorrect', 0);
+
+        this.index = 0;
+
+        this.LoadQuestion();
+
+        this.loadingComponent('Cargando Preguntas');
+
+        setTimeout(() => {
+          this.completelyLoaded = true;
+        }, 1000);
+
       },
       (error) => {
         this.navCtrl.setRoot(ConectionErrorPage, {}, { animate: true, direction: 'forward' });
       }
     );
-    this.title = "Preguntas de " + this.topic;
-    this.displayButtons = false;
-    this.storage.set('AnnICorrect', 0);
-    this.storage.set('AnnIInCorrect', 0);
-    this.LoadQuestion();
-    this.loadingComponent('Cargando Pregunta');
-    setTimeout(() => {
-      this.completelyLoaded = true;
-    }, 1000);
+
+
+
   }
 
   loadPastII() {
     this.topic = this.year - 2;
     this.preguntas.anno(this.topic).subscribe(
-      (data)=>{
+      (data) => {
         this.datos = data;
+
+        this.title = "Preguntas de " + this.topic;
+
+        this.index = 0;
+
+        this.displayButtons = false;
+
+        this.storage.set('AnnIICorrect', 0);
+        this.storage.set('AnnIIInCorrect', 0);
+
+        this.LoadQuestion();
+        this.loadingComponent('Cargando Pregunta');
+
+        setTimeout(() => {
+          this.completelyLoaded = true;
+        }, 1000);
       },
       (error) => {
         this.navCtrl.setRoot(ConectionErrorPage, {}, { animate: true, direction: 'forward' });
       }
     );
-    this.title = "Preguntas de " + this.topic;
-    this.displayButtons = false;
-    this.storage.set('AnnIICorrect', 0);
-    this.storage.set('AnnIIInCorrect', 0);
-    this.LoadQuestion();
-    this.loadingComponent('Cargando Pregunta');
-    setTimeout(() => {
-      this.completelyLoaded = true;
-    }, 1000);
+
   }
 
   loadPastIII() {
     this.topic = this.year - 3;
     this.preguntas.anno(this.topic).subscribe(
-      (data)=>{
+      (data) => {
         this.datos = data;
+
+        this.title = "Preguntas de " + this.topic;
+
+        this.index = 0;
+
+        this.displayButtons = false;
+
+        this.storage.set('AnnIIICorrect', 0);
+        this.storage.set('AnnIIIInCorrect', 0);
+
+        this.LoadQuestion();
+
+        this.loadingComponent('Cargando Pregunta');
+        setTimeout(() => {
+          this.completelyLoaded = true;
+        }, 1000);
       },
       (error) => {
         this.navCtrl.setRoot(ConectionErrorPage, {}, { animate: true, direction: 'forward' });
-      }
-    );
-    this.title = "Preguntas de " + this.topic;
-    this.displayButtons = false;
-    this.storage.set('AnnIIICorrect', 0);
-    this.storage.set('AnnIIIInCorrect', 0);
-    this.LoadQuestion();
-    this.loadingComponent('Cargando Pregunta');
-    setTimeout(() => {
-      this.completelyLoaded = true;
-    }, 1000);
+      });
+
+
   }
 
   loadingComponent(text: string) {
@@ -154,33 +185,22 @@ export class QExamsPage {
   }
 
   LoadQuestion() {
-       
-        if (this.datos.length >= this.index) {
-
-          this.firstFormula = this.datos[this.index].Primer_parrafo;
-          this.photo = 'https://mate-bachi.000webhostapp.com/storage/' + this.datos[this.index].Imagen;
-          this.secondFormula = this.datos[this.index].Segundo_parrafo;
-          this.uniqueAnswer = (this.datos[this.index].Es_unica == true);
-          this.firstAnswer = this.datos[this.index].Primer_ru;
-          this.secondAnswer = this.datos[this.index].Segunda_ru;
-          this.tirthAnswer = this.datos[this.index].Tercera_ru;
-          this.fourthAnswer = this.datos[this.index].Cuarta_ru;
-          this.correctAnswer = this.datos[this.index].Respuesta;
-
-        } else {
-          this.loadingComponent('Calculando resultados');
-          setTimeout(() => {
-            this.comeBack();
-          }, 1000);
-        }      
-
+    this.firstFormula = this.datos[this.index].Primer_parrafo;
+    this.photo = 'https://mate-bachi.000webhostapp.com/storage/' + this.datos[this.index].Imagen;
+    this.secondFormula = this.datos[this.index].Segundo_parrafo;
+    this.uniqueAnswer = (this.datos[this.index].Es_unica == true);
+    this.firstAnswer = this.datos[this.index].Primer_ru;
+    this.secondAnswer = this.datos[this.index].Segunda_ru;
+    this.tirthAnswer = this.datos[this.index].Tercera_ru;
+    this.fourthAnswer = this.datos[this.index].Cuarta_ru;
+    this.correctAnswer = this.datos[this.index].Respuesta;
   }
 
   skip() {
     this.index = this.index + 1;
     this.completelyLoaded = false;
     this.LoadQuestion();
-    this.loadingComponent('Cargando nueva pregunta.');
+    this.loadingComponent('Cargando pregunta ' + (this.index + 1) + ' de ' + this.datos.length);
     setTimeout(() => {
       this.completelyLoaded = true;
     }, 1000);
@@ -189,41 +209,58 @@ export class QExamsPage {
 
   functionAnswered() {
 
-    if (this.uniqueAnswer){
-      
-      if(this.respuesta + '' == 'null'){
+    if (this.uniqueAnswer) {
+
+      if (this.respuesta + '' == 'null') {
 
         this.isAnswered = false;
-      } else{
+      } else {
         this.isAnswered = true;
-      }     
-    }else if( !this.uniqueAnswer){
-      if(this.numberAnswer == null ){
+      }
+    } else if (!this.uniqueAnswer) {
+      if (this.numberAnswer == null) {
         this.isAnswered = false;
-      } else{
+      } else {
         this.isAnswered = true;
-      }     
+      }
     }
 
-    
+
     if (this.uniqueAnswer) {
       this.verifyUniqueAnswer();
     } else {
       this.verifyNumberAnswer();
     }
+
     this.DBWriteTopics();
+
     this.myForm.controls.uniqueAnswerTest.reset();
     this.myForm.controls.numericAnswer.reset();
-    setTimeout(() => {
-      this.skip();
-    }, 1000);
+
+    if (this.datos.length-1 > this.index) {
+
+      setTimeout(() => {
+        this.skip();
+      }, 1000);
+
+    } else {
+      setTimeout(() => {
+        this.loadingComponent('Calculando resultados');
+      }, 1000);
+
+      setTimeout(() => {
+        this.comeBack();
+      }, 1000);
+    }
+
+
 
   }
 
   verifyNumberAnswer() {
     let answer = this.correctAnswer + "";
 
-    if (answer == this.numberAnswer + ""  && this.isAnswered) {
+    if (answer == this.numberAnswer + "" && this.isAnswered) {
       this.correct();
     } else {
       this.incorrect();
@@ -303,15 +340,15 @@ export class QExamsPage {
 
   verifyUniqueAnswer() {
 
-    if(this.isAnswered){
+    if (this.isAnswered) {
       let answer = this.respuesta.toString();
 
-      if (answer == this.correctAnswer  ) {
+      if (answer == this.correctAnswer) {
         this.correct();
       } else {
         this.incorrect();
       }
-    }else{
+    } else {
       this.incorrect();
     }
 

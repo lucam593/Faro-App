@@ -47,8 +47,8 @@ export class PreguntasProvider {
   anno(ano: Number){
     let tempAno:Number = ano;
 
-    let url:string = 'https://mate-bachi.000webhostapp.com/api/api/anno/' + tempAno;
+    //let url:string = 'https://mate-bachi.000webhostapp.com/api/api/anno/' + tempAno;
 
-    return this.http.get(url);
+    return this.http.get('https://mate-bachi.000webhostapp.com/api/api/anno/' + tempAno);
   }
 }
