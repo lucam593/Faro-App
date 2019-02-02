@@ -2,7 +2,7 @@
   <ion-card-header (click)="toggleAccordion()">
     {{ title }}
   </ion-card-header>
-  <ion-card-content #cc>
+  <ion-card-content #cc [MathJax]="info">
     {{ info }}
   </ion-card-content>
 </ion-card>

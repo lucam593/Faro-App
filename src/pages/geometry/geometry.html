@@ -17,8 +17,102 @@
 
 
 <ion-content padding class="general-background">
-  <accordion title='Geometría Analítica' info='sa'></accordion>
-  <accordion title='Polígonos' info= 'sa'></accordion>
-  <accordion title='Transformaciones en el plano' info='sa'></accordion>
-  <accordion title='Visualización espacial' info= 'sa'></accordion>
+  <accordion title='Círculo y la circunferencia' info='Para calcular el área de un círculo se utiliza 
+                    la fórmula `A=r^2\pi` y para calcular la longitud de una circunferencia se 
+                    utiliza `C=2\pi*r` o bien `C=d\pi` , donde r es el radio de la circunferencia 
+                    y `d` es la medida del diámetro'></accordion>
+
+
+  <accordion title='Formulas básicas' 
+  info='Sean `A(x_1,y_1)` y `B(x_2,y_2)` dos puntos en el plano 
+        cartesiano. La distancia entre A y B, denotada `AB` es la longitud del segmento `\overline{AB}` y 
+        se calcula con la fórmula `d=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}`</br></br>
+        El punto medio entre los puntos `A(x_1,y_1) ` y `B(x_2,y_2) ` es:
+         `P_m=(({x_1+x_2}/{2})_,({y_1+y_2}/{2}))`. '></accordion>
+
+
+  <accordion title='Completar el cuadrado' 
+             info='Cuando aparece una expresión de la forma `x^2+bx` y 
+             se necesita de la forma `(x-h)^2`, se suma a ambos lados de la 
+             ecuación `({b}/{2})^2` y se factoriza el polinomio correspondiente 
+             como un trinomio cuadrático perfecto.'></accordion>
+
+  <accordion title='Ecuación canónica y posición de un punto respecto a una circunferencia' 
+             info= 'Considere una circunferencia de centro `O(h,k)` y radio r y un punto `P(x, y)`. </br></br>
+                    Si ` (x-h)^2+(y-k)^2=r^2` , entonces, P pertenece a la circunferencia. (Ecuacion de la circunferencia). </br></br>
+                    Si ` (x-h)^2+(y-k)^2>r^2` , entonces, P es exterior.</br></br>
+                    Si `(x-h)^2+(y-k)^2 \lt r^2`, entonces, P es interior </br></br>'></accordion>
+
+  <accordion title='Ecuación de una recta' 
+             info= 'La ecuación de una recta vertical es `x=a`, y las que no son verticales tiene ecuación 
+             `y= mx+b`, en particular `y=b` es la ecuación de una recta horizontal.</br></br> La forma estándar de la 
+             ecuación de una recta: `Ax+By+C=0`. </br></br>
+             Para encontrar la pendiente “m” dados dos puntos: `(x_1_,y_1)` y `(x_2_,y_2)` que pertenecen a la 
+             recta se utiliza la fórmula `m={y_2-y_1}/{x_2-x_1}`. </br></br> Para encontrar la intersección con el eje 
+             y "b" dada la pendiente y un punto, se sustituye los valores de m y las coordenadas de un punto en 
+             la ecuación y=mx+b. Una fórmula directa para b teniendo m y un punto `(x_, y)` es `b=y_1-{mx}_1`.
+  '></accordion>
+
+  <accordion title='Posición entre rectas' 
+             info='En caso de que la intersección de dos rectas en un mismo plano sea 
+             un punto decimos que las rectas son concurrentes. Sin embargo, no siempre 
+             será posible encontrar tal intersección: si el conjunto solución es vacío, 
+             entonces las rectas son paralelas.</br></br>
+             Mientras que si tenemos un sistema dependiente las dos ecuaciones representan 
+             la misma recta, o bien las rectas son coincidentes. </br></br>
+             Dos rectas cuyas ecuaciones son `l_1:y=m_1x+b_1` y `l_2:y=m_2x+b_2` son paralelas 
+             si y sólo si `m_1=m_2`.</br></br>
+             Dos rectas cuyas ecuaciones son `l_1:y=m_1x+b_1` y `l_2:y=m_2x+b_2` Son perpendiculares 
+             si y sólo si `m_1\cdot(m_2=-1)`.'></accordion>
+
+  <accordion title='Rectas tangentes' 
+             info= 'Una recta es tangente a una circunferencia si, y solo si, es perpendicular 
+             al diámetro que pasa por el punto de tangencia. Si `\overleftrightarrow{BT}` es tangente 
+             en `T\Rightarrow{m\angle{OTB=90°}}`.'></accordion>
+
+  <accordion title='Posición entre rectas y circunferencias' 
+             info= 'Considere la circunferencia de ecuación `(x-h)^2+(y-k)^2=r^2` y la recta de ecuación `y=mx+b`. 
+             Sea `\Delta` el discriminante de la ecuación `(x-h)^2+(mx+b-k)^2=r^2` que 
+             se obtiene al sustituir la ecuación de la recta en la ecuación de la circunferencia.</br></br>
+             Si `\Delta{>0}\Rightarrow` La ecuación tiene dos soluciones reales `\Rightarrow` 
+             la recta es secante a la circunferencia. </br></br>
+             Si `\Delta{=0}\Rightarrow`  La ecuación tiene una única solución real `\Rightarrow` 
+             la recta es tangente a la circunferencia. </br></br>
+             Si `\Delta{<0}\Rightarrow` La ecuación no tiene soluciones reales `\Rightarrow` 
+             la recta es exterior a la circunferencia. </br></br>
+'>
+            </accordion>
+
+  <accordion title='Traslación de circunferencias' 
+             info='Al trasladar la circunferencia de centro `O(k,h) ` y radio `r`, en dirección `(a,b)` 
+             se obtiene la circunferencia con ecuación ` (x-k-a)^2+(y-h-b)^2=r^2`.'></accordion>
+
+  <accordion title='Calcular áreas y perímetros de polígonos' 
+             info= 'Número de diagonales: `D={n(n-3)}/{2}`'></accordion>
+
+  <accordion title='Fórmulas para polígonos regulares' info= 'sa'></accordion>
+
+  <accordion title='Simetría axial' info= 'sa'></accordion>
+
+  <accordion title='Reflexión' info='sa'></accordion>
+
+  <accordion title='Traslación' info= 'sa'></accordion>
+
+  <accordion title='Homotecia' info= 'sa'></accordion>
+
+  <accordion title='Rotación' info= 'sa'></accordion>
+
+  <accordion title='Cilindro' info='sa'></accordion>
+
+  <accordion title='Esfera' info= 'sa'></accordion>
+
+  <accordion title='Cono' info='sa'></accordion>
+
+  <accordion title='Circunferencia' info= 'sa'></accordion>
+
+  <accordion title='Elipse' info= 'sa'></accordion>
+
+  <accordion title='Parábola' info= 'sa'></accordion>
+
+  <accordion title='Hipérbola' info='sa'></accordion>
 </ion-content>
