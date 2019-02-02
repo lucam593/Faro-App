@@ -17,12 +17,118 @@
 
 
 <ion-content padding class="general-background">
-  <accordion title='Medidas de posición' info='sa'></accordion>
-  <accordion title='Media aritmética Ponderada' info='sa'></accordion>
-  <accordion title='Medidas de variabilidad' info='sa'></accordion>
-  <accordion title='Representaciones tabulares y gráficas' info='sa'></accordion>
-  <accordion title='Representación gráfica' info='sa'></accordion>
-  <accordion title='Medidas relativas' info='sa'></accordion>
-  <accordion title='Eventos' info='sa'></accordion>
-  <accordion title='Probabilidades' info='sa'></accordion>
+  <accordion title='Medidas de Posición' info='
+La manera usual de analizar un grupo de datos `S=(y_{i})_{i=1, 2, \ldots , n}` es ordenandolo
+para obtener un grupo `S=(x_{i},f_{i})_{i=1, 2, \ldots , n}` donde la frecuencia del dato
+`x_{i}$ es $f_{i}` y esto significa que ese dato se repite f_i veces en el grupo original.
+Entonces, </br></br>
+La moda del grupo des `M_{0}=x_{p} si f_{p}\ge f_{i}, \forall j=1, 2, \ldots , n: ` el dato o 
+los datos con mayor frecuencia. </br></br>
+La media aritmética es el promedio aritmético: 
+`\bar{X}=\frac{\sum_{i=1}^{n}{y_{i}}}{n}=\frac{\sum_{i=1}^{N}{f_{i}-x_{i}}}{\sum_{i=1}^{N}{f_{i}}}`</br></br>
+El mínimo `m=\min y_{i} y el máximo M=\max y_{i}`, son los valores que `m\le y_{i}\le M,\forall i`
+ donde `m, M?S. `</br></br>
+El dato que está a un 50% es la mediana. 
+Formalmente `Me=Q_{2}=\bigg\{ \begin{gathered}</br></br>
+y_{\frac{n+1}{2}}, si n+1 es par \\\frac{y_{\Vert \frac{n+1}{2}\Vert }+y_{\Vert \frac{n+1}{2}\Vert +1}}{2}, 
+si n+1 es impar \\\end{gathered}`</br></br>
+El primer cuartil ` (25\%) es Q_{1}=\bigg\{ \begin{gathered} y_{\frac{n+1}{4}}, si n+1` es 
+múltiplo de `4 \\ \frac{y_{\Vert \frac{n+1}{4}\Vert }+y_{\Vert \frac{n+1}{4}\Vert +1}}{2}`, </br></br>
+en otro caso `\\\end{gathered}`.</br></br>
+El tercer cuartil ` (75\%)` es `Q_{3}=\bigg\{\begin{gathered} y_{\frac{3(n+1)}{4}}`, si `n+1` es
+ múltiplo de 4 `\\\frac{y_{\Vert \frac{3(n+1)}{4}\Vert }+y_{\Vert \frac{3(n+1)}{4}\Vert +1}}{2}`, en 
+ otro caso `\\\end{gathered}`</br></br>
+La media aritmética ponderada de un grupo de datos estadísticos `C=(y_{i})_{i=1, 2,\ldots ,N}` 
+es el promedio aritmético: </br></br>
+`\overline{X}=\frac{\sum_{i=1}^{N}{p_{i}\cdot `</br></br>
+`x_{i}}}{\sum_{i=1}^{N}{p_{i}}}`, donde cada `x_{i}` tiene un peso `p_{i}`.</br>
+  '></accordion>
+
+  <accordion title='Asimetría' info='
+  
+  Cuando tenemos un grupo de datos donde la mediana y la media aritmética coinciden tendremos
+   una distribución simétrica. </br></br>
+Pero, si la mediana es menor que la media aritmética, quiere decir que tendremos más datos
+ a la izquierda de la media que a la derecha, donde hay más peso y, por lo tanto, una distribución
+  con asimetría positiva (o derecha). </br></br>
+Si la mediana es mayor que la media aritmética, quiere decir que tendremos más
+ datos a la derecha de la media que a la izquierda y, por lo tanto, una distribución
+  con asimetría negativa (o izquierda). </br></br>
+
+  <img src="assets/imgs/ImagenEstadistica.PNG">
+  
+  '></accordion>
+  
+  <accordion title='Uso de la Calculadora' info='
+  
+  Nota: A manera de ejemplo, damos las instrucciones para el caso de una calculadora
+   CASIO fx-991ES que es la calculadora científica estándar con que se trabaja en secundaria. </br></br>
+Para activar el modo de estadística: MODE 3 1, ahí se pueden ingresar los datos si estos
+ no están agrupados. Después de ingresar los datos, se puede encontrar algunas medidas de
+  posición como el mínimo min o el máximo max al digitar: AC SHIFT 1 6, el número de datos
+   y la media aritmética ¯X se encuentran en AC SHIFT 1 4</br></br>
+Si se tuvieran frecuencias o pesos en el caso de media aritmética ponderada, 
+se debe activar la columna de frecuencia. Esto se hace de la siguiente manera
+ SHIFT MODE ↓ 4 1 y para desactivarla SHIFT MODE ↓ 4 2</br></br>
+  
+  '></accordion>
+
+  <accordion title='Diagrama de Cajas' info='
+  
+  El recorrido es R= max-min, mide la variación absoluta de la distribución. </br></br>
+El recorrido intercuartílico es la diferencia `R_{1}=Q_{3}-Q_{1}`, mide la variación en el 50% central de los datos. </br></br>
+
+  '></accordion>
+
+
+  <accordion title='Variancia y Desviacion Estandar' info='
+  
+  La variancia poblacional es `\sigma`</br></br>
+`^{2}=\frac{\sum_{i=1}^{n}{(x_{i}-\overline{X})^{2}}}{n}` y 
+la desviación estándar poblacional es `\sigma`</br></br>
+=`\sqrt{\frac{\sum_{i=1}^{n}{(x_{i}-\overline{X})^{2}}}{n}}`, 
+si el número de datos es n y el promedio es ¯X. Despues de introducir 
+los datos en la calculadora se encuentran AC SHIFT 1 4 3</br></br>
+La variancia muestral `s^{2}=\frac{\sum_{i=1}^{n}{(x_{i}-\overline{X})^{2}}}{n-1}` y 
+la desviación estándar muestral `s=\sqrt{\frac{\sum_{i=1}^{n}{(x_{i}-\overline{X})^{2}}}{n-1}}`, 
+si el número de datos es n y el promedio es ¯X. Después de introducir los datos en la calculadora
+ se encuentran AC SHIFT 1 4 4</br></br>
+Tanto en las poblaciones como en las muestras se debe recordar que si los datos están agrupados
+ con frecuencia debe activarse la columna de frecuencias. </br></br>
+  
+  '></accordion>
+
+  <accordion title='Medidas Relativas' info='
+  
+  El coeficiente de variación de un grupo de datos con promedio `\overline{X}` y
+   desviación estándar `$\sigma $`, dado como porcentaje es `C_{v}=\frac{\sigma }{\overline{X}}\cdot 100\%`. 
+   El valor estandarizado `z_{i} de un dato x_{i} es z_{i}=` </br></br>
+`\frac{x_{i}-\overline{X}}{\sigma }`. En el caso de una muestra se usa s en lugar de `\sigma`.</br></br>
+  
+  '></accordion>
+
+  <accordion title='Definicion de Probabilidad' info='
+  
+  Un espacio muestral “U” es el conjunto de posibles resultados de un experimento, y 
+  cada uno de estos resultados es un punto muestral. Un evento es un subconjutno de “U”. 
+  A cada evento “A” se le asigna un número  P(A)  tal que 0\le P(A)\le 1 llamado la probabilidad 
+  de “A” y este es el resultado de dividir el número de puntos muestrales favorales n(A) por el 
+  número de total de puntos muestrales en el espacio muestral `n(U): P(A)=\frac{n(A)}{n(U)} `</br></br>
+Si P(A)=0 decimos que el evento A es imposible y no sucederá. Si P(A)=1 decimos que el evento A es seguro. </br></br>
+Si `A\cap B=\emptyset` decimos que los eventos A y B son mutuamente excluyentes. </br></br>
+El complemento de A, denotado, `A^{t}` es el evento: "no sucede A" y se cumple que `P(A^{t})=1-P(A) `</br></br>
+
+  
+  '></accordion>
+
+
+  <accordion title='Eventos Compuestos' info='
+  
+  La intersección de los eventos A y B es el evento definido por: "sucede A y sucede B".
+   Se denota `A\cap B` y denotamos su probabilidad `P(A\cap B) `. Dados dos eventos, la unión
+    de los eventos sucede cuando sucede alguno de ellos, y denotamos su probabilidad `P(A\cup B)$. $P(A\cup </br></br>
+B)=P(A)+P(B)-P(A\cap B) `.</br></br>
+
+  
+  '></accordion>
 </ion-content>
