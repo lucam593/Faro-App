@@ -17,11 +17,330 @@
 
 
 <ion-content padding class="general-background">
-  <accordion title='Conjuntos numéricos' info='sa'></accordion>
-  <accordion title='Funciones' info='sa'></accordion>
-  <accordion title='Funciones inversas' info='sa'></accordion>
-  <accordion title='Funciones exponenciales' info='sa'></accordion>
-  <accordion title='Funciones logarítmicas' info='sa'></accordion>
-  <accordion title='Sistemas de ecuaciones lineales' info='sa'></accordion>
-  <accordion title='Funciones y modelización' info='sa'></accordion>
+  <accordion title='Intervalos' info='
+  
+  Un intervalo `\mathbb{I} de \mathbb{R}` es un conjunto de números reales
+   que satisface la siguiente propiedad: una desigualdad, y lo podemos representar
+    mediante segmentos, rayos o semirrectas con base en la recta real. Los extremos
+     pueden o no estar incluidos. </br></br>
+  
+  '></accordion>
+  <accordion title='Complementos' info='
+  
+  El complemento del conjunto A respecto al universo
+   U, es `A^c=U-A. ` Es el conjunto formado por los elementos
+    que no pertenecen al conjunto dado. </br></br>
+
+    <img src="assets/imgs/F- (4).PNG" >
+ 
+  '></accordion>
+
+  <accordion title='Diagramas de Venn' info='
+  
+  Cuando se tienen dos conjuntos, y es necesario analizar intersecciones,
+   uniones, complementos o diferencias, es conveniente representarlos en lo
+    que llamamos diagramas de Venn. </br></br>
+El rectángulo representa el universo, y esta dividido en cuatro regiones I, II, III y IV, disjuntas
+ (sin elementos en común). Las regiones corresponden a los siguientes conjuntos: `I:(A\cup{B})^c`, `II:A-B`,
+  `III:A\cap{B}`, `IV:B-A` </br></br>
+
+  '></accordion>
+  
+  <accordion title='Definición de función' info='
+  
+  Una función de A en B es una relación, en la que se asigna a cada elemento de A un único elemento de B. </br></br>
+Para denotar una función f con un dominio A y codominio B se escribe: </br></br>
+`f:A\to B`, `f(x)=criterio` </br></br>
+Tanto en una gráfica, como en una tabla de valores, o en una representación algebraica, para 
+asegurarse que la relación representa en una función de verificarse: “Cada x tiene una única y” </br></br>
+
+<img src="assets/imgs/F- (5).PNG" >
+
+  '></accordion>
+
+  <accordion title='Imágenes y preimágenes' info='
+  
+  Para calcular la imagen f(a) de un elemento del dominio a se sustituye el valor en el criterio. </br></br>
+Para calcular las preimágenes x de un elemento de codominio b se iguala el valor al criterio y luego se 
+resuelve la ecuación resultante f(x)=b. </br></br>
+Gráficamente, debe buscarse los puntos (a,b) que pertenecen a la gráfica para concluir que b es una imagen de a. </br></br>
+
+  
+  '></accordion>
+  <accordion title='Gráfico y ámbito' info='
+  
+  El grafico de una función es el conjunto de todas las parejas (x,y) donde
+   `x\in D_{f}`,  y `y=f(x):  G_{f}=\lbrace (x,y) / x\in D_{f}`, `y=f(x)\rbrace`. 
+   El ámbito o rango es el conjunto de imágenes y es siempre un subconjunto del codominio y 
+   se puede denotar como `A_{f}` o bien, `f_{D}` si D representa el dominio de f. </br></br>
+  
+  '></accordion>
+
+  <accordion title='Intersecciones con los ejes' info='
+  
+  Cuando tenemos una función f, su gráfica: 
+Interseca al eje y en el punto (0,y) tal que 
+y= f(0); la imagen de 0. </br>
+Interseca al eje x en todos los puntos (x,0) tales que f(x) = 0; las preimágenes de 0. </br></br>
+
+<img src="assets/imgs/F- (6).PNG" >
+  '></accordion>
+
+  <accordion title='Dominio y ámbito de una gráfica' info='
+  
+  Para determinar el dominio de una función dada su gráfica, se debe “proyectar” 
+  los puntos de la gráfica sobre el eje x, y ver el conjunto que se forma. Para 
+  determinar el ámbito se hace lo mismo, pero sobre el eje y. </br></br>
+  
+  <img src="assets/imgs/F- (7).PNG" >
+  '></accordion>
+
+  <accordion title='Intervalos de monotonía' info='
+  
+  Una función f es creciente en un intervalo I, si para cualesquiera
+   `x_{1},x_{2}` que pertenecen a ese intervalo, tales que `x_{1}<x_{2}` se cumple
+    que `f(x_{1})\le f(x_{2})`.</br></br>
+
+    <img src="assets/imgs/F- (8).PNG" >
+
+    Una función f es decreciente en un intervalo I, si para cualesquiera
+     `x_{1},x_{2}` que pertenecen a ese intervalo, tales que `x_{1}<x_{2}` se
+      cumple que `f(x_{1})\ge f(x_{2})`.</br></br>
+
+      <img src="assets/imgs/F- (9).PNG" >
+
+      Una función f es constante en un intervalo $I$, si 
+para cualesquiera `x_{1},x_{2}` que pertenecen a ese intervalo, tales que
+ `x_{1}<x_{2}` se cumple que `f(x_{1})=f(x_{2})`.</br></br>
+
+ <img src="assets/imgs/F- (10).PNG" >
+  
+  '></accordion>
+
+  <accordion title='Composición de funciones' info='
+  
+  Sean `f:A\to{B}` y `g:C\to{D}` funciones, donde `f(A)\subseteq{C}`. 
+  La función composición, es `g\circ{f}:A\to{D}`,`(g\circ{f})(x)=g[f(x)] `.</br></br>
+
+  '></accordion>
+
+  <accordion title='Condiciones para que una función tenga inversa' info='
+  
+  Sea `f:A\to{B}` una función. Se dice que f es inyectiva, si cada imagen tiene una y solo una preimagen. </br></br>
+Prueba de la línea horizontal: Una función es inyectiva si en su gráfica, no existe una línea horizontal que 
+interseque la grafica en más de un punto. </br></br>
+Sea `f:A\to{B}` una función. Se dice que f es biyectiva, si es inyectiva y el codominio se definió como el 
+ámbito de la función. En tal caso, la función inversa de f existe. </br></br>
+
+<img src="assets/imgs/F- (11).PNG" >
+  
+  '></accordion>
+
+  <accordion title='Función inversa' info='
+  
+  Si f es biyectiva, entonces, `f^{-1}:B\to{A}` es la función inversa de f si se 
+  cumple que: `f(x)=y\Leftrightarrow{f^{-1}(y)=x}` para cualquier valor `x\in{A}` y su respectiva `y\in{B}`.</br></br>
+Para encontrar el criterio de la función inversa de una función: </br></br>
+Se plantea la ecuación f(x)=y, luego, se despeja x en términos de y. Por 
+último, se escribe `f^{-1}(x) ` en vez de x, y x en vez de y. </br></br>
+Para dibujar la gráfica de la función inversa de una función dada, primero 
+se dibuja la recta identidad, luego se refleja cada punto de la gráfica de 
+la función simétricamente sobre esa recta. </br></br>
+  
+  '></accordion>
+  <accordion title='Función raíz cuadrada f(x)=a\sqrt{x+b}+c' info='
+  Para a>0
+
+  Si el dominio es ` [-b,+\infty [` el ámbito es `[c,+\infty [`</br></br>
+
+f es inyectiva</br></br>
+
+f es creciente</br></br>
+
+<img src="assets/imgs/F- (12).PNG" >
+
+Para a<0
+
+Si el dominio es `[-b,+\infty [` el ámbito es `]-\infty , c]` </br></br>
+
+f es inyectiva</br></br>
+
+f es decreciente</br></br>
+
+<img src="assets/imgs/F- (13).PNG" >
+
+  '></accordion>
+
+  <accordion title='Función lineal f(x)=mx+b' info='
+  
+  Las gráficas de funciones de la forma f(x)=mx+b son rectas, por eso las llamamos funciones lineales. 
+  El valor de m se denomina pendiente y b corresponde a la intersección con el eje y. </br></br>
+
+  La función es estrictamente creciente si m>0. </br></br>
+  <img src="assets/imgs/F- (14).PNG" ></br></br>
+  La función es constante si m=0. La grafica es una recta horizontal. </br></br>
+  <img src="assets/imgs/F- (15).PNG" ></br></br>
+  La función es estrictamente decreciente si m<0. </br></br>
+  <img src="assets/imgs/F- (16).PNG" ></br></br>
+  Las rectas verticales no corresponden a ninguna función. </br></br>
+  <img src="assets/imgs/F- (17).PNG" ></br></br>
+
+
+  Para calcular m y b se utiliza m=`\frac{y_2-y_1}{x_2-x_1}`  y b=y_1-m`\cdot{x_1}` donde (x_1,y_1) y (x_2,y_2) son 
+  puntos cualesquiera del gráfico. </br></br>
+Si el dominio de una función lineal es un intervalo de `\mathbb{R}`, el ámbito también será un intervalo 
+de `\mathbb{R}`, cuyos extremos son las imágenes de los extremos del intervalo del dominio. De 
+la misma forma, si el ámbito es un intervalo de `\mathbb{R}`, entonces el dominio es el intervalo 
+de `\mathbb{R}`, cuyos extremos son las preimágenes de los extremos del intervalo del ámbito. </br></br>
+
+  '></accordion>
+
+  <accordion title='Función cuadrática f(x)=ax^2+bx+c,a`\neq{0}`' info='
+  
+  Nos dice la concavidad: f es cóncava hacia arriba si a>0, cóncava hacia abajo si a<0. </br></br>
+
+  a>0 El vértice es punto mínimo</br></br>
+
+  `\Delta>0`</br></br>
+  <img src="assets/imgs/F- (18).PNG" ></br></br>
+  `\Delta=0`</br></br>
+  <img src="assets/imgs/F- (19).PNG" ></br></br>
+  `Delta<0`</br></br>
+  <img src="assets/imgs/F- (20).PNG" ></br></br>
+
+  a<0 El vértice es punto máximo</br></br>  
+
+  `\Delta>0`</br></br>
+  <img src="assets/imgs/F- (21).PNG" ></br></br>
+  `\Delta=0`</br></br>
+  <img src="assets/imgs/F- (22).PNG" ></br></br>
+  `Delta<0`</br></br>
+  <img src="assets/imgs/F- (23).PNG" ></br></br>
+
+
+  El discriminante `\delta=b^2-4ac` determina el número de intersecciones con el eje x. 
+  Si ∆ >0 interseca en dos puntos, si \delta=0 interseca en un punto y si \delta<0 no interseca 
+  en ningún punto. Estas intersecciones son (si existen) (x_1,0) y (x_2,0), donde x_1 y x_2 son 
+  las soluciones de la ecuación ax^2+bx+c=0. </br></br>
+    El punto (0,c) representa la intersección con el eje y. </br></br>
+    El vértice V=(V_x,V_y)=( `\frac{-b}{2a}`,`\frac{-\Delta}{4a}`) es el 
+    punto máximo o mínimo de la gráfica, dependiendo de la concavidad. Si 
+    la función está en forma normal f(x)=a{(x-h)}^2+k, entonces, V=(h,k). La 
+    coordenada en x del vértice representa el eje de simetría: x=`\frac{-b}{2a}`.</br></br>
+    Esto significa que puntos que estén a la misma distancia del vértice en el eje x, 
+    tendrá exactamente la misma imagen bajo f. </br></br>
+    Para determinar los intervalos de monotonía de una función cuadrática, hay que 
+    calcular V_x y la concavidad, y para determinar el ámbito hay que calcular V_y y la 
+    concavidad. </br></br>
+    Si f(x)=a(x-x_1)(x-x_2), entonces, f interseca el eje x en (x_1,0)\ y (x_2,0). 
+    Además, V_y=`\frac{x_1+x_2}{2}` y V_y=f(V_x). </br></br>
+    
+
+  '></accordion>
+
+  <accordion title='Función exponencial `f(x)=a^x`' info='
+  
+  Para a>1
+
+  <img src="assets/imgs/F- (24).PNG" ></br></br>
+
+  Características básicas:
+  -	Dominio: `\mathbb{R}`</br>
+  -	Si el dominio es `\mathbb{R}`, el ámbito es `\mathbb{R}^`+</br>
+  -	f es inyectiva y creciente</br>
+  -	Interseca al eje y en (0,1) </br>
+  -	No interseca el eje x</br>
+  -	Asíntota: y=0</br>
+  
+  Para 0<a<1
+
+  <img src="assets/imgs/F- (25).PNG" ></br></br>
+
+  Características básicas:
+-	Dominio: `\mathbb{R}`</br>
+-	Si el dominio es `\mathbb{R}`, el ámbito es `\mathbb{R}^`+</br>
+-	f es inyectiva y decreciente</br>
+-	Interseca al eje y en (0,1) </br>
+-	No interseca el eje x</br>
+-	Asíntota: y=0</br>
+  
+  '></accordion>
+  <accordion title='Función logarítmica f(x)= `\log_a{x}`' info='
+  
+  Para a>1</br></br>
+  <img src="assets/imgs/F- (26).PNG" ></br></br>
+  Características básicas:
+-	Dominio: `\mathbb{R}^`+</br>
+-	Si D_f=`\mathbb{R}`^+`\Rightarrow`\ A_f=`\mathbb{R}`,</br>
+-	f es inyectiva y creciente</br>
+-	Interseca al eje x en (1,0) </br>
+-	No interseca el eje y</br>
+-	Asíntota: x=0</br></br></br>
+
+
+  Para 0<a<1</br></br>
+  <img src="assets/imgs/F- (27).PNG" ></br></br>
+  Características básicas:
+  -	Dominio: `\mathbb{R}^`+</br>
+  -	Si D_f=`\mathbb{R}^`+`\Rightarrow`\ A_f=`\mathbb{R}`,</br>
+  -	f es inyectiva y decreciente</br>
+  -	Interseca al eje x en (1,0) </br>
+  -	No interseca el eje y</br>
+  -	Asíntota: x=0</br>
+  
+ 
+  '></accordion>
+
+  <accordion title='Sistemas de ecuaciones' info='
+  
+  Un sistema de ecuaciones `\begin{cases} a_1 x+b_1 y=c_1 \\a_2 x+b_2 y=c_2\end{cases}` se 
+  dice inconsistente (o incompatible) si el conjunto solución es vacío y las rectas que 
+  representan las ecuaciones son paralelas y distintas. En caso contrario, se dice consistente (o compatible). </br></br>
+Cuando en un sistema de ecuaciones, una ecuación es múltiplo de la otra (ecuación equivalente0, 
+decimos que el sistema es dependiente, y las rectas que representan son coincidentes (la misma recta). 
+Esto sucede, cuando al resolver el sistema obtenemos identidades. Si al resolver el sistema encontramos 
+un único punto como intersección, el sistema es consistente e independiente, y las rectas que representan concurrentes. </br></br>
+
+  
+  '></accordion>
+  <accordion title='Definición de logaritmo' info='
+  
+  `\log_a{y}`: es el numero al cual debe elevarse a para obtener como resultado y. </br></br>
+En una expresión logarítmica de la forma x=`\log_a{y}`,`\ x` se llama logaritmo o exponente, 
+a es la base y y es el argumento. Un logaritmo está definido solamente si su base y su 
+argumento son positivos, aunque el logaritmo puede ser negativo. </br></br>
+Por ser de uso común se utiliza log (logaritmo) cuando la base es 10 y ln (logaritmo natural) cuando la base es e. </br></br>
+
+  
+  '></accordion>
+  <accordion title='Notación exponencial y logarítmica' info='
+  
+  Para convertir de expresiones exponenciales a expresiones logarítmicos se 
+  utiliza la definición de logaritmo: `a^x=y\Leftrightarrow\ x=\log_a{y}`.</br></br>
+Para convertir de expresiones logarítmicas a expresiones exponenciales 
+se utiliza la definición de logaritmo: x=`\log_a{y}\Leftrightarrow\ a^x=y`.</br></br>
+  
+  '></accordion>
+  
+  <accordion title='Ecuaciones exponenciales' info='
+  
+  Para resolver ecuaciones exponenciales, se debe intentar escribir 
+  ambos lados de la ecuación como potencias con la misma base, luego 
+  deducir que si `a^{p(x)}=a^{q(x)}\Rightarrow\` p(x)=q(x). Por último, 
+  se resuelve la ecuación que queda. </br></br>
+Para resolver ecuaciones exponenciales de la forma 
+si  `a^{p(x)}=b^{q(x)}\Rightarrow\log_c{(a^{p(x)})}=\log_c{(b^{q(x)})}\Rightarrow\` p(x) `\bullet\log_c{a}=q(x)\bullet\log_c{b}.`</br></br>
+
+  
+  '></accordion>
+  <accordion title='Ecuaciones logarítmicas' info='
+  
+  Ecuaciones logarítmicas de la forma `\log_a{p(x)}=\log_a{q(x)}\Rightarrow p(x)=q(x).` </br></br>
+Ecuaciones logarítmicas de la forma `\log_a{p(x)}=b\Rightarrow p(x)=a^b.` </br></br>
+
+En las ecuaciones logarítmicas se debe verificar que la solución sea válida en la 
+ecuación original, dando argumentos positivos en los logaritmos. </br></br>
+
+
+  '></accordion>
 </ion-content>
