@@ -8,11 +8,10 @@ import { QExamsPage} from '../../pages/q-exams/q-exams';
 import { QRandomPage } from '../../pages/q-random/q-random';
 import { QSimulationPage} from '../../pages/q-simulation/q-simulation';
 import { QTopicsPage } from '../../pages/q-topics/q-topics';
-import { GeometryPage } from '../../pages/geometry/geometry';
-import { AlgebraPage} from '../../pages/algebra/algebra';
-import { StadisticsPage } from '../../pages/stadistics/stadistics';
-
-
+import { CienciasPage } from '../../pages/ciencias/ciencias';
+import { MatematicaPage } from "../../pages/matematica/matematica";
+import { EstudiosSocialesPage } from "../../pages/estudios-sociales/estudios-sociales";
+import { EspanolPage } from "../../pages/espanol/espanol";
 
 @Injectable()
 export class MenuProvider {
@@ -49,19 +48,23 @@ export class MenuProvider {
       component: ScoresPage,
       icon: 'podium',
     },{
-      title: 'Temas',
+      title: 'Asignaturas',
       subPages: [{
-        title: 'Geometria',
-        component: GeometryPage,
-        icon: 'cube',
+        title: 'Español',
+        component: EspanolPage,
+        icon: 'md-bookmarks',
       }, {
-        title: 'Algebra',
-        component: AlgebraPage,
-        icon: 'move',
-      }, {
-        title: 'Estaditica y Probabilidad',
-        component: StadisticsPage,
+        title: 'Matemática',
+        component: MatematicaPage,
         icon: 'stats',
+      }, {
+        title: 'Ciencias',
+        component: CienciasPage,
+        icon: 'body',
+      }, {
+        title: 'Estudios Sociales',
+        component: EstudiosSocialesPage,
+        icon: 'map',
       }]
     },{
       title: 'Sobre Nosotros', 
