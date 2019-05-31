@@ -74,7 +74,7 @@ export class QTopicsPage {
     this.topic = 2;
     this.title = "Preguntas de Algebra";
     this.displayButtons = false;
-    this.LoadQuestion();
+
     this.loadingComponent('Cargando Pregunta');
     setTimeout(() => {
       this.completelyLoaded = true;
@@ -85,7 +85,7 @@ export class QTopicsPage {
     this.topic = 1;
     this.title = "Preguntas de Geometria";
     this.displayButtons = false;
-    this.LoadQuestion();
+
     this.loadingComponent('Cargando Pregunta');
     setTimeout(() => {
       this.completelyLoaded = true;
@@ -96,7 +96,7 @@ export class QTopicsPage {
     this.topic = 3;
     this.title = "Preguntas de Estadistica";
     this.displayButtons = false;
-    this.LoadQuestion();
+
     this.loadingComponent('Cargando Pregunta');
     setTimeout(() => {
       this.completelyLoaded = true;
@@ -113,29 +113,6 @@ export class QTopicsPage {
     loading.present();
   }
 
-  LoadQuestion() {
-    this.preguntas.temas(this.topic).subscribe(
-      (data) => {
-
-        this.datos = data;
-        this.firstFormula = this.datos.Primer_parrafo;
-        this.photo = 'https://mate-bachi.000webhostapp.com/storage/' + this.datos.Imagen;
-        this.secondFormula = this.datos.Segundo_parrafo;
-        this.uniqueAnswer = (this.datos.Es_unica == true);
-        this.firstAnswer = this.datos.Primer_ru;
-        this.secondAnswer = this.datos.Segunda_ru;
-        this.tirthAnswer = this.datos.Tercera_ru;
-        this.fourthAnswer = this.datos.Cuarta_ru;
-        this.correctAnswer = this.datos.Respuesta;
-
-
-      },
-      (error) => {
-        this.navCtrl.setRoot(ConectionErrorPage, {}, { animate: true, direction: 'forward' });
-      }
-    )
-  }
-
   ionViewDidLoad() {
 
   }
@@ -143,7 +120,7 @@ export class QTopicsPage {
   skip() {
     this.myForm = this.createMyForm();
     this.completelyLoaded = false;
-    this.LoadQuestion();
+
     this.loadingComponent('Cargando nueva pregunta.');
     setTimeout(() => {
       this.completelyLoaded = true;

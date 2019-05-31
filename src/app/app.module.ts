@@ -13,12 +13,15 @@ import { LoginPage} from '../pages/login/login';
 import { StudentRegistrationPage} from '../pages/student-registration/student-registration';
 import { LogoutPage} from '../pages/logout/logout';
 import { AboutPage } from '../pages/about/about';
-import { QExamsPage} from '../pages/q-exams/q-exams';
 import { QRandomPage } from '../pages/q-random/q-random';
 import { QSimulationPage} from '../pages/q-simulation/q-simulation';
 import { QTopicsPage } from '../pages/q-topics/q-topics';
 import { GeometryPage } from '../pages/geometry/geometry';
 import { AlgebraPage} from '../pages/algebra/algebra';
+import { CienciasPage } from '../pages/ciencias/ciencias';
+import { MatematicaPage } from "../pages/matematica/matematica";
+import { EstudiosSocialesPage } from "../pages/estudios-sociales/estudios-sociales";
+import { EspanolPage } from "../pages/espanol/espanol";
 import { StadisticsPage } from '../pages/stadistics/stadistics';
 import {SliderPage } from '../pages/slider/slider';
 import {ConectionErrorPage} from '../pages/conection-error/conection-error';
@@ -43,7 +46,6 @@ import { HttpModule } from '@angular/http';
     StudentRegistrationPage,
     LogoutPage,
     AboutPage,
-    QExamsPage,
     QRandomPage,
     QSimulationPage,
     QTopicsPage,
@@ -54,6 +56,10 @@ import { HttpModule } from '@angular/http';
     AccordionComponent,
     SliderPage,
     ConectionErrorPage,
+    CienciasPage,
+    EstudiosSocialesPage,
+    MatematicaPage,
+    EspanolPage,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +78,6 @@ import { HttpModule } from '@angular/http';
     StudentRegistrationPage,
     LogoutPage,
     AboutPage,
-    QExamsPage,
     QRandomPage,
     QSimulationPage,
     QTopicsPage,
@@ -81,6 +86,10 @@ import { HttpModule } from '@angular/http';
     StadisticsPage,
     SliderPage,
     ConectionErrorPage,
+    CienciasPage,
+    EstudiosSocialesPage,
+    EspanolPage,
+    MatematicaPage,
   ],
   providers: [
     StatusBar,

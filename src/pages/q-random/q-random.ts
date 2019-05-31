@@ -74,7 +74,7 @@ export class QRandomPage {
   }
 
   LoadQuestion() {
-    this.preguntas.todoAleatorio().subscribe(
+    this.preguntas.todoAleatorio(1).subscribe(
       (data) => {
         this.datos = data;
         if (this.datos.Primer_parrafo == null) {
