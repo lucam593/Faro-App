@@ -13,7 +13,6 @@ import { LoginPage} from '../pages/login/login';
 import { StudentRegistrationPage} from '../pages/student-registration/student-registration';
 import { LogoutPage} from '../pages/logout/logout';
 import { AboutPage } from '../pages/about/about';
-import { QExamsPage} from '../pages/q-exams/q-exams';
 import { QRandomPage } from '../pages/q-random/q-random';
 import { QSimulationPage} from '../pages/q-simulation/q-simulation';
 import { QTopicsPage } from '../pages/q-topics/q-topics';
@@ -47,7 +46,6 @@ import { HttpModule } from '@angular/http';
     StudentRegistrationPage,
     LogoutPage,
     AboutPage,
-    QExamsPage,
     QRandomPage,
     QSimulationPage,
     QTopicsPage,
@@ -80,7 +78,6 @@ import { HttpModule } from '@angular/http';
     StudentRegistrationPage,
     LogoutPage,
     AboutPage,
-    QExamsPage,
     QRandomPage,
     QSimulationPage,
     QTopicsPage,

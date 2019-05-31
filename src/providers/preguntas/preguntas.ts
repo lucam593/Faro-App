@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { stringify } from '@angular/core/src/render3/util';
 
 /*
   Generated class for the PreguntasProvider provider.
@@ -14,41 +15,18 @@ export class PreguntasProvider {
   constructor(public http: HttpClient) {
   }
 
-  todoAleatorio(){
-    return this.http.get('https://mate-bachi.000webhostapp.com/api/api/todoaleatorio');
+  todoAleatorio(topic:Number){
+    let url:string;
+    url = 'http://faroadmin-001-site1.ftempurl.com/api/api/todoaleatorio/'+topic;
+    return this.http.get(url);
   }
 
-  temas(topic:Number){
-    if(topic==1){
-      return this.geometria();
-    }else if(topic==2){
-      return this.algebra();
-    }else if(topic==3){
-      return this.estadistica();
-    }
+  simulacro(topic:Number){
+    let url:string;
+    url = 'http://faroadmin-001-site1.ftempurl.com/api/api/simulacro/'+topic;
+    return this.http.get(url);
   }
 
-  algebra(){
-    return this.http.get('https://mate-bachi.000webhostapp.com/api/api/algebra');
-  }
+  
 
-  estadistica(){
-    return this.http.get('https://mate-bachi.000webhostapp.com/api/api/eyp');
-  }
-
-  geometria(){
-    return this.http.get('https://mate-bachi.000webhostapp.com/api/api/geometria');
-  }
-
-  simulacro(){
-    return this.http.get('https://mate-bachi.000webhostapp.com/api/api/simulacro');
-  }
-
-  anno(ano: Number){
-    let tempAno:Number = ano;
-
-    //let url:string = 'https://mate-bachi.000webhostapp.com/api/api/anno/' + tempAno;
-
-    return this.http.get('https://mate-bachi.000webhostapp.com/api/api/anno/' + tempAno);
-  }
 }

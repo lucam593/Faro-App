@@ -24,30 +24,32 @@ export class MenuProvider {
       component: HomePage,
       icon: 'home',
     },
+    //{
+     // title: 'Preguntas',
+     // subPages: [{
+     //   title: 'Aleatorio ',
+     //   component: QRandomPage,
+     //   icon: 'shuffle',
+     // }, {
+     //   title: 'Temas',
+     //   component: QTopicsPage,
+     //   icon: 'book',
+    //  }, {
+    //    title: 'Simulación',
+    //    component: QSimulationPage,
+    //    icon: 'clipboard',
+    //  }, {
+    //    title: 'Anteriores',
+    //    component: QExamsPage,
+    //    icon: 'return-left',
+    //  }]
+    //},
+    //{
+   //   title: 'Resultados',
+    //  component: ScoresPage,
+    //  icon: 'podium',
+   // },
     {
-      title: 'Preguntas',
-      subPages: [{
-        title: 'Aleatorio ',
-        component: QRandomPage,
-        icon: 'shuffle',
-      }, {
-        title: 'Temas',
-        component: QTopicsPage,
-        icon: 'book',
-      }, {
-        title: 'Simulación',
-        component: QSimulationPage,
-        icon: 'clipboard',
-      }, {
-        title: 'Anteriores',
-        component: QExamsPage,
-        icon: 'return-left',
-      }]
-    },{
-      title: 'Resultados',
-      component: ScoresPage,
-      icon: 'podium',
-    },{
       title: 'Asignaturas',
       subPages: [{
         title: 'Español',
@@ -66,11 +68,12 @@ export class MenuProvider {
         component: EstudiosSocialesPage,
         icon: 'map',
       }]
-    },{
-      title: 'Sobre Nosotros', 
-      component: AboutPage,
-      icon: 'alert',
-    },{
+    },//{
+  //    title: 'Sobre Nosotros', 
+   //   component: AboutPage,
+   //   icon: 'alert',
+  //  },
+    {
       title: 'Cerrar sesión', 
       component: LogoutPage,
       icon: 'log-out',
