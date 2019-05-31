@@ -54,7 +54,7 @@ export class QSimulationPage {
     this.index = 0;
     this.displayButtons = true;
 
-    this.preguntas.simulacro().subscribe(
+    this.preguntas.simulacro(1).subscribe(
       (data) => {
 
         this.datos = data;
@@ -79,7 +79,7 @@ export class QSimulationPage {
     this.index = 0;
     this.displayButtons = true;
 
-    this.preguntas.simulacro().subscribe(
+    this.preguntas.simulacro(1).subscribe(
       (data) => {
 
         this.datos = data;
